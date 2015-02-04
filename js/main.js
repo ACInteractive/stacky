@@ -122,7 +122,7 @@ function newGame(win) {
 
 function setGameSizes() {
 	var contentHeight = $( window ).height() - 0;
-	var gameContainerHeight = contentHeight - 67;
+	var gameContainerHeight = contentHeight - 57;
 	var gameWindowHeight = gameContainerHeight - 20;
 	var gameWindowPanelHeight = gameWindowHeight;
 	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
@@ -143,8 +143,6 @@ function setGameSizes() {
 		$("#stacks").width(stacksWidth);
 		$("#current-stack").width(stackWidth);
 		$("#final-stack").width(stackWidth);
-		$("#current-stack .panel-heading").width(stackWidth-20);
-		$("#final-stack .panel-heading").width(stackWidth-20);
     	$("#current-stack-list").width(stackItemsWidth);
 		$("#final-stack-list").width(stackItemsWidth);
 		
