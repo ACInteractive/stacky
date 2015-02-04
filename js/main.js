@@ -83,8 +83,10 @@ function runOp(op) {
 		val = 5;
 		if(moves > gen_nr_ops)
 			val = val - (moves - gen_nr_ops);
-		else if(moves < gen_nr_ops)
+		else if(moves < gen_nr_ops) {
 			val = val + (gen_nr_ops - moves);
+			time = time + (gen_nr_ops - moves);
+		}
 		if(val < 1)
 			val = 1;
 		$("#points").text(val).fadeToggle(1000).fadeToggle(3000);
@@ -134,20 +136,20 @@ function setGameSizes() {
 	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
 		
 	setTimeout(function() {
-		var stacksWidth = $( window ).width() - 147;
+		var stacksWidth = $( window ).width() - 127;
 		var stackWidth = (stacksWidth - 10) / 2;
 		var stackItemsWidth = stackWidth - 10;
 		
 		$("#stacks").width(stacksWidth);
 		$("#current-stack").width(stackWidth);
 		$("#final-stack").width(stackWidth);
-		$("#current-stack .panel-heading").width(stackWidth-30);
-		$("#final-stack .panel-heading").width(stackWidth-30);
+		$("#current-stack .panel-heading").width(stackWidth-20);
+		$("#final-stack .panel-heading").width(stackWidth-20);
     	$("#current-stack-list").width(stackItemsWidth);
 		$("#final-stack-list").width(stackItemsWidth);
 		
-		$("#points").css("top",130);
-		$("#points").css("left",($( window ).width() - 35) / 2);
+		$("#points").css("top",3);
+		$("#points").css("left",118);
 	}, 100);
 }
 
