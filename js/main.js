@@ -122,7 +122,7 @@ function newGame(win) {
 
 function setGameSizes() {
 	var contentHeight = $( window ).height() - 0;
-	var gameContainerHeight = contentHeight - 57;
+	var gameContainerHeight = contentHeight - 67;
 	var gameWindowHeight = gameContainerHeight - 20;
 	var gameWindowPanelHeight = gameWindowHeight;
 	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
