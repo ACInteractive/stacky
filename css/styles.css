@@ -144,6 +144,7 @@ h2 {
 }
 
 #moves .panel-body {
+	overflow-x: hidden;
 	overflow-y: auto;
 }
 
@@ -155,6 +156,10 @@ h2 {
 #moves .panel-body .list-group-item span {
 	font-size: 20px;
 	Width: 70px;
+}
+
+#stacks .list-group-item {
+	padding: 5px;
 }
 
 #stacks .list-group-item span {
@@ -194,7 +199,7 @@ h2 {
 
 #moves .list-group .list-group-item {
 	float: left;
-	width: 85px;
+	width: 95px;
 	height: 55px;
 	margin: 2px 0;
 	border-radius: 4px;
