@@ -1,7 +1,7 @@
 var gen_initial_max_size = 5;
 var gen_initial_max_rand = 10;
 var gen_nr_ops = 5;
-var time = 120;
+var time = 300;
 
 setInterval(function () {
 	if(time >= 0)
@@ -121,7 +121,7 @@ function newGame(win) {
 }
 
 function setGameSizes() {
-	var contentHeight = $( window ).height() -20;
+	var contentHeight = $( window ).height() - 0;
 	var gameContainerHeight = contentHeight - 67;
 	var gameWindowHeight = gameContainerHeight - 20;
 	var gameWindowPanelHeight = gameWindowHeight;
@@ -136,7 +136,7 @@ function setGameSizes() {
 	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
 		
 	setTimeout(function() {
-		var stacksWidth = $( window ).width() - 127;
+		var stacksWidth = $( window ).width() - 107;
 		var stackWidth = (stacksWidth - 10) / 2;
 		var stackItemsWidth = stackWidth - 10;
 		
