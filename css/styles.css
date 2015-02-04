@@ -65,6 +65,10 @@ h2 {
 	margin-bottom: 0;
 }
 
+.panel-default .panel-body {
+	padding: 5px;
+}
+
 #new-game {
 	float: left;
 	margin-right: 10px;
@@ -82,7 +86,7 @@ h2 {
 }
 
 #player-time {
-	float: left;
+	float: right;
 }
 
 #player-info {
@@ -124,6 +128,12 @@ h2 {
 	margin-left: 5px;
 }
 
+#stacks .panel-heading {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
 #moves {
 	width: 110px;
 }
@@ -139,12 +149,16 @@ h2 {
 
 #moves .panel-body .list-group-item {
 	text-align: center;
-	padding: 15px 5px;
+	padding: 5px;
 }
 
 #moves .panel-body .list-group-item span {
-	width: 60px;
 	font-size: 20px;
+	Width: 70px;
+}
+
+#stacks .list-group-item span {
+	padding: 5px 15px;
 }
 
 .game-window #final-stack {
@@ -155,7 +169,6 @@ h2 {
 	position: relative;
 	overflow-y: auto;
 }
-
 
 #current-stack .list-group, #final-stack .list-group {
 	position: absolute;
@@ -181,14 +194,13 @@ h2 {
 
 #moves .list-group .list-group-item {
 	float: left;
-	width: 75px;
-	height: 75px;
-	margin: 7px;
+	width: 85px;
+	height: 55px;
+	margin: 2px 0;
 	border-radius: 4px;
 }
 
 #current-stack .list-group a span, #final-stack .list-group a span {
-	padding: 5px 20px;
 	background-color: #fff;
 	opacity: 0.5;
 	border-radius: 10px;
