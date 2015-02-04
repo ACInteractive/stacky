@@ -119,10 +119,10 @@ function newGame(win) {
 }
 
 function setGameSizes() {
-	var contentHeight = $( window ).height() - 185;
+	var contentHeight = $( window ).height() -20;
 	var gameContainerHeight = contentHeight - 110;
-	var gameWindowHeight = gameContainerHeight - 30;
-	var gameWindowPanelHeight = gameWindowHeight - 20;
+	var gameWindowHeight = gameContainerHeight - 20;
+	var gameWindowPanelHeight = gameWindowHeight;
 	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 72;
 	
 	$("#content").height(contentHeight);
@@ -134,7 +134,7 @@ function setGameSizes() {
 	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
 		
 	setTimeout(function() {
-		var stacksWidth = $( window ).width() - 352;
+		var stacksWidth = $( window ).width() - 302;
 		var stackWidth = (stacksWidth - 25) / 2;
 		var stackItemsWidth = stackWidth - 30;
 		

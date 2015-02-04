@@ -33,22 +33,6 @@ body {
 	background-position:center;
 }
 
-header {
-	width: 100%;
-	background: rgb(255,255,255);
-	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1)));
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
-	opacity: 0.8;
-	padding: 10px;
-	text-align: center;
-	border-bottom: 1px solid #fff;
-}
-
 h1 {
 	color: #265A88;
 	font-family: 'Black Ops One', cursive;
@@ -70,31 +54,9 @@ h2 {
 	margin-top: 0;
 }
 
-hr {
-	margin-top: 0;
-	margin-bottom: 0;
-}
-
-footer {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
-	background: rgb(255,255,255);
-	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(47%,rgba(246,246,246,1)), color-stop(100%,rgba(237,237,237,1)));
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(246,246,246,1) 47%,rgba(237,237,237,1) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 );
-	opacity: 0.8;
-	padding: 10px;
-	text-align: center;
-}
-
 #content {
 	width: 100%;
-	padding: 20px;
+	padding: 10px;
 	text-align: center;
 	opacity: 0.9;
 }
@@ -141,17 +103,13 @@ footer {
 	white-space: nowrap;
 }
 
-#game-container {
-	background-color: #fcfcfc;
-}
-
-#game-window {
+.game-window {
 	background: #000;
 	border-radius: 4px;
 	padding: 15px;
 }
 
-#game-window .panel {
+.game-window .panel {
 	float: left;
 	opacity: 0.95;
 	font-weight: bold;
@@ -186,7 +144,7 @@ footer {
 	font-size: 20px;
 }
 
-#game-window #final-stack {
+.game-window #final-stack {
 	float: right;
 }
 
