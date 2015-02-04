@@ -106,7 +106,7 @@ h2 {
 .game-window {
 	background: #000;
 	border-radius: 4px;
-	padding: 15px;
+	padding: 5px;
 }
 
 .game-window .panel {
@@ -115,14 +115,17 @@ h2 {
 	font-weight: bold;
 }
 
+.game-window .panel .panel-body {
+	padding: 5px;
+}
+
 #stacks {
 	float: left;
-	margin: 10px;
+	margin-left: 5px;
 }
 
 #moves {
-	margin: 10px;
-	width: 210px;
+	width: 110px;
 }
 
 #moves .panel-heading a {
@@ -156,7 +159,7 @@ h2 {
 
 #current-stack .list-group, #final-stack .list-group {
 	position: absolute;
-	bottom: 10px;
+	bottom: 0;
 	margin: 0 auto;
 	-webkit-transform: rotate(180deg);     /* Chrome and other webkit browsers */
 	-moz-transform: rotate(180deg);        /* FF */
