@@ -27,7 +27,6 @@ body {
 	background: -ms-linear-gradient(top,  rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
 	background: linear-gradient(to bottom,  rgba(73,155,234,1) 0%,rgba(32,124,229,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5',GradientType=0 );
-	background: #000 url(../img/bg2.jpg);
 	background-repeat:no-repeat;
 	background-size:cover;
 	background-position:center;
@@ -35,7 +34,6 @@ body {
 
 h1 {
 	color: #265A88;
-	font-family: 'Black Ops One', cursive;
 	font-size: 3em;
 	font-weight: bolder;
 	text-transform: uppercase;
@@ -49,7 +47,6 @@ h1 span {
 
 h2 {
 	color: #BAA3A5;
-	font-family: 'Black Ops One', cursive;
 	font-size: 0.9em;
 	margin-top: 0;
 }
@@ -58,6 +55,28 @@ h2 {
 	width: 100%;
 	text-align: center;
 	opacity: 0.9;
+}
+
+.initial-page {
+	background: url(../img/bg2.jpg);
+	padding: 0 20px;
+	text-align: center;
+}
+
+.initial-page #logo {
+	margin: 0 auto;;
+	width: 400px;
+	height: 500px;
+	background: url(../img/logo.png);
+}
+
+.initial-page button {
+	width: 100%;
+	margin: 5px 0;
+}
+
+#play-menu {
+	display: none;
 }
 
 .panel {
@@ -124,7 +143,7 @@ h2 {
 
 #stacks {
 	float: left;
-	margin-left: 5px;
+	margin-right: 5px;
 }
 
 .panel-heading {

@@ -320,9 +320,9 @@ function Generator()
                 }
         }
 
-        this.StandardOperation = function(initialp, nr_ops) {
+        this.StandardOperation = function(initialp, initial_max_rand, nr_ops) {
                 this.internal_stack.Init(initialp);
-                this.GenerateOps(nr_ops, this.internal_stack.ops_range, 3);
+                this.GenerateOps(nr_ops, initial_max_rand, 3);
                 this.ExecuteOps();
         }
 
@@ -342,12 +342,12 @@ function Generator()
                         this.initial.push(Math.floor((Math.random() * initial_max_rand) + 1));      
                 }
 
-                this.StandardOperation(this.initial, nr_ops);               
+                this.StandardOperation(this.initial, initial_max_rand, nr_ops);               
         }
 
-        this.GenerateFromArray = function(new_initial, nr_ops) {
+        this.GenerateFromArray = function(new_initial, initial_max_rand, nr_ops) {
                 this.initial = new_initial;
-                this.StandardOperation(this.initial, nr_ops);
+                this.StandardOperation(this.initial, initial_max_rand, nr_ops);
         }
 }
 

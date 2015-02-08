@@ -1,31 +1,11 @@
+var gameMode = getUrlParameter("gameMode");
+if(gameMode == 1)
+	var gen_initial_max_rand = 6;
+else
+	var gen_initial_max_rand = 6;
 var gen_initial_max_size = 5;
-var gen_initial_max_rand = 10;
 var gen_nr_ops = 5;
 var time = 300;
-
-setInterval(function () {
-	if(time >= 0)
-		time = time - 1;
-	$("#time").text(time);
-	if(time <= 10) {
-		$("#player-time .btn").addClass("btn-danger");
-	}
-	if(time == 0) {
-		if (confirm("Game over! \nYou have earned " + score + " points. \nWell done!\n\nWant to play again?")) { 
-			location.reload();
-		} 
-		else { 
-			alert('Good bye!') 
-		};
-	}
-	if(time < 0) {
-		$("#new-game").hide();
-		$("#player-score").hide();
-		$("#player-time").hide();
-		$("#restart-game").show();
-	}
-}, 1000);
-
 var currentStack = new StackOps();
 var is_same = false;
 var currentGameStack = [];
@@ -85,7 +65,9 @@ function runOp(op) {
 			val = val - (moves - gen_nr_ops);
 		else if(moves < gen_nr_ops) {
 			val = val + (gen_nr_ops - moves);
-			time = time + (gen_nr_ops - moves);
+			if(gameMode == 3) {
+				time = time + (gen_nr_ops - moves);
+			}
 		}
 		if(val < 1)
 			val = 1;
@@ -121,7 +103,7 @@ function newGame(win) {
 }
 
 function setGameSizes() {
-	var contentHeight = $( window ).height() - 0;
+	var contentHeight = $( window ).height();
 	var gameContainerHeight = contentHeight - 67;
 	var gameWindowHeight = gameContainerHeight - 20;
 	var gameWindowPanelHeight = gameWindowHeight;
@@ -151,12 +133,53 @@ function setGameSizes() {
 	}, 100);
 }
 
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+}    
+
 $(function() {
 	setGameSizes();
-	imageUrl = "img/alex.jpg";
-	$("#player-thumbnail").css("background-image","url(" + imageUrl + ")");
-	
 	newGame(1);
+	
+	if(gameMode == 1) {
+		$(".secondary-ops").hide();
+	}
+	if(gameMode == 3) {
+		setInterval(function () {
+			if(time >= 0)
+				time = time - 1;
+			$("#time").text(time);
+			if(time <= 10) {
+				$("#player-time .btn").addClass("btn-danger");
+			}
+			if(time == 0) {
+				if (confirm("Game over! \nYou have earned " + score + " points. \nWell done!\n\nWant to play again?")) { 
+					location.reload();
+				} 
+				else { 
+					alert('Good bye!') 
+				};
+			}
+			if(time < 0) {
+				$("#new-game").hide();
+				$("#player-score").hide();
+				$("#player-time").hide();
+				$("#restart-game").show();
+			}
+		}, 1000);
+	} else {
+		$("#player-time").hide();
+	}
 });
 $( window ).resize(function() {
 	setGameSizes();
