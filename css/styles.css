@@ -55,27 +55,35 @@ h2 {
 	width: 100%;
 	text-align: center;
 	opacity: 0.9;
+	display: none;
 }
 
-.initial-page {
+#first-page {
 	background: url(../img/bg2.jpg);
-	padding: 0 20px;
 	text-align: center;
+	overflow: auto;
 }
 
-.initial-page #logo {
-	margin: 0 auto;;
-	width: 400px;
-	height: 500px;
+#first-page #logo {
+	margin: 50px auto;;
+	width: 200px;
+	height: 250px;
 	background: url(../img/logo.png);
 }
 
-.initial-page button {
+#first-page button {
 	width: 100%;
 	margin: 5px 0;
 }
 
-#play-menu {
+#first-page #menu, #first-page #play-menu  {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	padding: 20px;
+}
+
+#first-page #play-menu {
 	display: none;
 }
 

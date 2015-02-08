@@ -5,35 +5,127 @@
 <title>Stacky</title>
 <script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/initial.js"></script>
+<script type="text/javascript" src="js/stackops.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
-<body class="initial-page">
-    <div id="logo"></div>
-    <div id="menu">
-        <button id="play-button" class="btn btn-lg btn-success" type="button">
-            Play
-        </button>
-        <button id="tutorial-button" class="btn btn-lg btn-warning" type="button">
-            How to play
-        </button>
-        <button id="options-button" class="btn btn-lg btn-primary disabled" type="button">
-            Options
-        </button>
+<body>
+	<div id="first-page">
+        <div id="logo"></div>
+        <div id="menu">
+            <button id="play-button" class="btn btn-lg btn-success" type="button">
+                Play
+            </button>
+            <button id="tutorial-button" class="btn btn-lg btn-warning" type="button">
+                How to play
+            </button>
+            <button id="options-button" class="btn btn-lg btn-primary disabled" type="button">
+                Options
+            </button>
+        </div>
+        <div id="play-menu">
+            <button class="btn btn-lg btn-success" type="button" onClick="play(1)">
+                Learning game 
+            </button>
+            <button class="btn btn-lg btn-warning" type="button" onClick="play(2)">
+                Normal game 
+            </button>
+            <button class="btn btn-lg btn-primary" type="button" onClick="play(3)">
+                Against the clock
+            </button>
+        </div>
     </div>
-    <div id="play-menu">
-        <button class="btn btn-lg btn-success" type="button" onClick="play(1)">
-            Learning game 
-        </button>
-        <button class="btn btn-lg btn-warning" type="button" onClick="play(2)">
-            Normal game 
-        </button>
-        <button class="btn btn-lg btn-primary" type="button" onClick="play(3)">
-            Against the clock
-        </button>
+    <div id="content">
+    	<div class="panel panel-default">
+			<div class="panel-body">
+            	<div id="new-game">
+                	<button class="btn btn-lg btn-success" type="button" onClick="newGame(0);">
+                    	<span class="glyphicon glyphicon-play" aria-hidden="true"></span> 
+                    </button>
+                </div>
+                <div id="restart-game">
+                	<button class="btn btn-lg btn-success" type="button" onClick="location.reload();">
+                    	<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 
+                    </button>
+                </div>
+            	<div id="player-score" class="btn-group" role="group" aria-label="Your Score">
+                	<button class="btn btn-lg btn-primary" type="button">
+                    	<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
+                    </button>
+                    <button class="btn btn-lg btn-primary" type="button">
+                    	<span id="score">0</span>
+                    </button>
+
+                </div>
+                <div id="player-time" class="btn-group" role="group" aria-label="Remaining Time">
+                	<button class="btn btn-lg btn-default" type="button">
+                    	<span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
+                    </button>
+                    <button class="btn btn-lg btn-default" type="button">
+                    	<span id="time"></span>
+                    </button>
+                </div>
+			</div>
+            <div id="game-container" class="panel-body game-window">
+                <div id="stacks">
+                    <div id="current-stack" class="panel panel-warning">
+                        <div class="panel-heading">Current Stack</div>
+                        <div class="panel-body"> 
+                        	<div id="current-stack-list" class="list-group">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="final-stack" class="panel panel-success">
+                        <div class="panel-heading">Final Stack</div>
+                        <div class="panel-body">
+                            <div id="final-stack-list" class="list-group">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="moves" class="panel panel-primary">
+                    <div class="panel-heading">Moves</div>
+                    <div class="panel-body">
+                        <div class="list-group">
+                            <a href="javascript:runOp(1);" class="list-group-item primary-ops">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Dup
+                            </a>
+                            <a href="javascript:runOp(2);" class="list-group-item primary-ops">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Drop
+                            </a>
+                            <a href="javascript:runOp(3);" class="list-group-item primary-ops">
+                                <span class="glyphicon glyphicon-resize-vertical" aria-hidden="true"></span> Swap
+                            </a>
+                            <a href="javascript:runOp(4);" class="list-group-item primary-ops">
+                                <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Over
+                            </a>
+                            <a href="javascript:runOp(5);" class="list-group-item primary-ops">
+                                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Rot
+                            </a>
+                            <a href="javascript:runOp(6);" class="list-group-item primary-ops">
+                                <span class="glyphicon glyphicon-refresh flipH" aria-hidden="true"></span> Min Rot
+                            </a>
+                            <a href="javascript:runOp(7);" class="list-group-item secondary-ops">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true">2</span> Dup
+                            </a>
+                            <a href="javascript:runOp(8);" class="list-group-item secondary-ops">
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true">2</span> Drop
+                            </a>
+                            <a href="javascript:runOp(9);" class="list-group-item secondary-ops">
+                                <span class="glyphicon glyphicon-resize-vertical" aria-hidden="true">2</span> Swap
+                            </a>
+                            <a href="javascript:runOp(10);" class="list-group-item secondary-ops">
+                                <span class="glyphicon glyphicon-repeat" aria-hidden="true">2</span> Over
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+        <div id="points"></div>
     </div>
 </body>
 </html>

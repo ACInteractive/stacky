@@ -1,8 +1,5 @@
-var gameMode = getUrlParameter("gameMode");
-if(gameMode == 1)
-	var gen_initial_max_rand = 6;
-else
-	var gen_initial_max_rand = 6;
+var gameMode;
+var gen_initial_max_rand;
 var gen_initial_max_size = 5;
 var gen_nr_ops = 5;
 var time = 300;
@@ -109,6 +106,7 @@ function setGameSizes() {
 	var gameWindowPanelHeight = gameWindowHeight;
 	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
 	
+	$("#first-page").height(contentHeight);
 	$("#content").height(contentHeight);
 	$("#game-container").height(gameContainerHeight);
 	$("#game-window").height(gameWindowHeight);
@@ -133,27 +131,17 @@ function setGameSizes() {
 	}, 100);
 }
 
-function getUrlParameter(sParam)
-{
-    var sPageURL = window.location.search.substring(1);
-    var sURLVariables = sPageURL.split('&');
-    for (var i = 0; i < sURLVariables.length; i++) 
-    {
-        var sParameterName = sURLVariables[i].split('=');
-        if (sParameterName[0] == sParam) 
-        {
-            return sParameterName[1];
-        }
-    }
-}    
-
-$(function() {
-	setGameSizes();
-	newGame(1);
+function play(gameMode) {
+	gameMode = gameMode;
+	$("#first-page").hide();
+	$("#content").show();
 	
 	if(gameMode == 1) {
 		$(".secondary-ops").hide();
-	}
+		gen_initial_max_rand = 6;
+	} else
+		gen_initial_max_rand = 10;
+		
 	if(gameMode == 3) {
 		setInterval(function () {
 			if(time >= 0)
@@ -180,6 +168,21 @@ $(function() {
 	} else {
 		$("#player-time").hide();
 	}
+	
+	newGame(1);
+}
+
+$(function() {
+	setGameSizes();
+	
+	$("#play-button").click( function() {
+		$("#play-menu").show();
+		$("#menu").hide();
+	});
+});
+
+$(function() {
+	
 });
 $( window ).resize(function() {
 	setGameSizes();
