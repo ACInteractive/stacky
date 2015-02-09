@@ -2,8 +2,8 @@
     <widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.working.stacky"
-        versionCode = "10" 
-        version     = "1.0.0" >
+        versionCode = "1" 
+        version     = "1.1.0" >
 
     <!-- versionCode is optional and Android only -->
 
@@ -22,9 +22,5 @@
 	<preference name="fullscreen" value="true" />
 	
 	<preference name="phonegap-version" value="3.6.3" />
-	
-	<preference name="android-minSdkVersion" value="14" />
-	
-	<preference name="android-targetSdkVersion" value="14" />
 
 </widget>
