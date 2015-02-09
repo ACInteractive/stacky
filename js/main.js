@@ -180,10 +180,3 @@ $(function() {
 		$("#menu").hide();
 	});
 });
-
-$(function() {
-	
-});
-$( window ).resize(function() {
-	setGameSizes();
-});
