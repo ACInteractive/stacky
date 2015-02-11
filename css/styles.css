@@ -62,6 +62,21 @@ body {
 	display: none;
 }
 
+#tutorial-page {
+	display: none;
+	background: #EE863F;
+	overflow: auto;
+}
+#tutorial-description {
+	padding: 10px;
+	color: #fff;
+}
+
+#tutorial-description button {
+	width: 100%;
+	margin: 5px 0;
+}
+
 .panel {
 	margin-bottom: 0;
 }

@@ -107,6 +107,7 @@ function setGameSizes() {
 	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
 	
 	$("#first-page").height(contentHeight);
+	$("#tutorial-page").height(contentHeight);
 	$("#content").height(contentHeight);
 	$("#game-container").height(gameContainerHeight);
 	$("#game-window").height(gameWindowHeight);
@@ -115,18 +116,20 @@ function setGameSizes() {
 	$("#current-stack .panel-body").height(gameWindowPanelBodyHeight);
 	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
 		
-	var stacksWidth = $( window ).width() - 107;
-	var stackWidth = (stacksWidth - 5) / 2;
-	var stackItemsWidth = stackWidth - 10;
-	
-	$("#stacks").width(stacksWidth);
-	$("#current-stack").width(stackWidth);
-	$("#final-stack").width(stackWidth);
-	$("#current-stack-list").width(stackItemsWidth);
-	$("#final-stack-list").width(stackItemsWidth);
-	
-	$("#points").css("top",3);
-	$("#points").css("left",118);
+	setTimeout(function() {
+		var stacksWidth = $( window ).width() - 107;
+		var stackWidth = (stacksWidth - 10) / 2;
+		var stackItemsWidth = stackWidth - 10;
+		
+		$("#stacks").width(stacksWidth);
+		$("#current-stack").width(stackWidth);
+		$("#final-stack").width(stackWidth);
+    	$("#current-stack-list").width(stackItemsWidth);
+		$("#final-stack-list").width(stackItemsWidth);
+		
+		$("#points").css("top",3);
+		$("#points").css("left",118);
+	}, 500);
 }
 
 function play(gameMode) {
@@ -176,5 +179,15 @@ $(function() {
 	$("#play-button").click( function() {
 		$("#play-menu").show();
 		$("#menu").hide();
+	});
+	
+	$("#tutorial-button").click( function() {
+		$("#tutorial-page").show();
+		$("#first-page").hide();
+	});
+	
+	$("#ready-to-play-button").click( function() {
+		$("#first-page").show();
+		$("#tutorial-page").hide();
 	});
 });
