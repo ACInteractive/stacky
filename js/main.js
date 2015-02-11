@@ -132,6 +132,16 @@ function setGameSizes() {
 	}, 500);
 }
 
+function reloadGame() {
+	$("#playAgain").val(1);
+	location.reload();
+}
+
+function backToFirstPage() {
+	$("#playAgain").val(0);
+	location.reload();
+}
+
 function play(gameMode) {
 	gameMode = gameMode;
 	$("#first-page").hide();
@@ -144,6 +154,7 @@ function play(gameMode) {
 		gen_initial_max_rand = 10;
 		
 	if(gameMode == 3) {
+		$("#back").hide();
 		setInterval(function () {
 			if(time >= 0)
 				time = time - 1;
@@ -153,7 +164,7 @@ function play(gameMode) {
 			}
 			if(time == 0) {
 				if (confirm("Game over! \nYou have earned " + score + " points. \nWell done!\n\nWant to play again?")) { 
-					location.reload();
+					reloadGame();
 				} 
 				else { 
 					alert('Good bye!') 
@@ -164,6 +175,7 @@ function play(gameMode) {
 				$("#player-score").hide();
 				$("#player-time").hide();
 				$("#restart-game").show();
+				$("#back").show();
 			}
 		}, 1000);
 	} else {
@@ -188,6 +200,11 @@ $(function() {
 	
 	$("#ready-to-play-button").click( function() {
 		$("#first-page").show();
+		$("#play-menu").show();
+		$("#menu").hide();
 		$("#tutorial-page").hide();
 	});
+	
+	if($("#playAgain").val()==1)
+		play(3);
 });

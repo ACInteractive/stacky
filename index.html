@@ -37,6 +37,7 @@
         </div>
     </div>
     <div id="content">
+    	<input type="hidden" name="playAgain" id="playAgain" value="0" />
     	<div class="panel panel-default">
 			<div class="panel-body">
             	<div id="new-game">
@@ -45,7 +46,7 @@
                     </button>
                 </div>
                 <div id="restart-game">
-                	<button class="btn btn-lg btn-success" type="button" onClick="location.reload();">
+                	<button class="btn btn-lg btn-success" type="button" onClick="reloadGame();">
                     	<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 
                     </button>
                 </div>
@@ -56,14 +57,18 @@
                     <button class="btn btn-lg btn-primary" type="button">
                     	<span id="score">0</span>
                     </button>
-
                 </div>
                 <div id="player-time" class="btn-group" role="group" aria-label="Remaining Time">
                 	<button class="btn btn-lg btn-default" type="button">
                     	<span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
                     </button>
                     <button class="btn btn-lg btn-default" type="button">
-                    	<span id="time"></span>
+                    	<span id="time">300</span>
+                    </button>
+                </div>
+                <div id="back">
+                	<button class="btn btn-lg btn-default" type="button" onClick="backToFirstPage();">
+                    	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
                     </button>
                 </div>
 			</div>
