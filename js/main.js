@@ -116,7 +116,7 @@ function setGameSizes() {
 	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
 		
 	var stacksWidth = $( window ).width() - 107;
-	var stackWidth = (stacksWidth - 10) / 2;
+	var stackWidth = (stacksWidth - 5) / 2;
 	var stackItemsWidth = stackWidth - 10;
 	
 	$("#stacks").width(stacksWidth);
