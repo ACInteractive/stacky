@@ -115,20 +115,18 @@ function setGameSizes() {
 	$("#current-stack .panel-body").height(gameWindowPanelBodyHeight);
 	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
 		
-	setTimeout(function() {
-		var stacksWidth = $( window ).width() - 107;
-		var stackWidth = (stacksWidth - 10) / 2;
-		var stackItemsWidth = stackWidth - 10;
-		
-		$("#stacks").width(stacksWidth);
-		$("#current-stack").width(stackWidth);
-		$("#final-stack").width(stackWidth);
-    	$("#current-stack-list").width(stackItemsWidth);
-		$("#final-stack-list").width(stackItemsWidth);
-		
-		$("#points").css("top",3);
-		$("#points").css("left",118);
-	}, 100);
+	var stacksWidth = $( window ).width() - 107;
+	var stackWidth = (stacksWidth - 10) / 2;
+	var stackItemsWidth = stackWidth - 10;
+	
+	$("#stacks").width(stacksWidth);
+	$("#current-stack").width(stackWidth);
+	$("#final-stack").width(stackWidth);
+	$("#current-stack-list").width(stackItemsWidth);
+	$("#final-stack-list").width(stackItemsWidth);
+	
+	$("#points").css("top",3);
+	$("#points").css("left",118);
 }
 
 function play(gameMode) {
