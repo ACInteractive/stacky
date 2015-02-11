@@ -34,6 +34,9 @@
             <button class="btn btn-lg btn-primary" type="button" onClick="play(3)">
                 Against the clock
             </button>
+            <button class="btn btn-lg btn-info" type="button" onClick="backToFirstPage()">
+                Back
+            </button>
         </div>
     </div>
     <div id="content">
@@ -59,7 +62,7 @@
                     </button>
                 </div>
                 <div id="player-time" class="btn-group" role="group" aria-label="Remaining Time">
-                	<button class="btn btn-lg btn-default" type="button">
+                	<button id="pause-time" class="btn btn-lg btn-default" type="button">
                     	<span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
                     </button>
                     <button class="btn btn-lg btn-default" type="button">
@@ -69,6 +72,11 @@
                 <div id="back">
                 	<button class="btn btn-lg btn-default" type="button" onClick="backToFirstPage();">
                     	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
+                    </button>
+                </div>
+                <div id="pause">
+                	<button id="pause-time" class="btn btn-lg btn-default" type="button">
+                    	<span class="glyphicon glyphicon-pause" aria-hidden="true"></span> 
                     </button>
                 </div>
 			</div>

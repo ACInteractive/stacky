@@ -106,8 +106,14 @@ body {
 	float: right;
 }
 
-#back{
+#back {
 	float: right;
+}
+
+#pause {
+	float: right;
+	display: none;
+	margin-right: 10px;
 }
 
 #player-info {

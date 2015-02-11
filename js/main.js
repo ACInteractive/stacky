@@ -11,6 +11,7 @@ var win = 0;
 var score = 0;
 var val = 0;
 var moves = 0;
+var pause = 0;
 
 function generateInitialStack(stack) {
 	$("#current-stack-list").html("");
@@ -156,7 +157,7 @@ function play(gameMode) {
 	if(gameMode == 3) {
 		$("#back").hide();
 		setInterval(function () {
-			if(time >= 0)
+			if(time >= 0 && pause == 0)
 				time = time - 1;
 			$("#time").text(time);
 			if(time <= 10) {
@@ -203,6 +204,20 @@ $(function() {
 		$("#play-menu").show();
 		$("#menu").hide();
 		$("#tutorial-page").hide();
+	});
+	
+	$("#pause-time").click( function() {
+		$("#pause").show();
+		$("#back").show();
+		$("#player-time").hide();
+		pause = 1;
+	});
+	
+	$("#pause").click( function() {
+		$("#pause").hide();
+		$("#back").hide();
+		$("#player-time").show();
+		pause = 0;
 	});
 	
 	if($("#playAgain").val()==1)
