@@ -29,7 +29,7 @@ function resetVariables() {
 resetVariables();
 
 function generateInitialStack(stack) {
-	$("#current-stack-list").html("");
+	$("#current-stack-list").empty();
 	var initialList = "";
 	for(i=0; i<stack.initial.length; i++) {
 		initialList = initialList + "<a class='list-group-item color" + stack.initial[i] + "'><span>" + stack.initial[i] + "</span></a>";
@@ -38,7 +38,7 @@ function generateInitialStack(stack) {
 }
 
 function generateFinalStack(stack) {
-	$("#final-stack-list").html("");
+	$("#final-stack-list").empty();
 	var finalList = "";
 	for(i=0; i<stack.internal_stack.length(); i++) {
 		finalList = finalList + "<a class='list-group-item color" + stack.internal_stack.get(i) + "'><span>" + stack.internal_stack.get(i) + "</span></a>";
