@@ -63,7 +63,7 @@ function runOp(op) {
 		currentList = currentList + "<a class='list-group-item color" + currentStack.get(i) + "'><span>" + currentStack.get(i) + "</span></a>";
 		currentGameStack.push(currentStack.get(i));
 	}
-	$("#current-stack-list").html("").html(currentList);
+	$("#current-stack-list").empty().html(currentList);
 	
 	is_same = (currentGameStack.length == finalGameStack.length) && currentGameStack.every(function(element, index) {
 		return element === finalGameStack[index]; 
