@@ -2,7 +2,7 @@ var gameMode;
 var gen_initial_max_rand;
 var gen_initial_max_size = 5;
 var gen_nr_ops = 5;
-var time = 300;
+var time = 3;
 var currentStack = new StackOps();
 var is_same = false;
 var currentGameStack = [];
