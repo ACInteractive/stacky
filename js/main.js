@@ -11,6 +11,7 @@ var win = 0;
 var score = 0;
 var val = 0;
 var moves = 0;
+var playAgain = 0;
 
 function generateInitialStack(stack) {
 	$("#current-stack-list").html("");
@@ -133,12 +134,12 @@ function setGameSizes() {
 }
 
 function reloadGame() {
-	$("#playAgain").val(1);
+	localStorage.setItem("playAgain", 1);
 	location.reload();
 }
 
 function backToFirstPage() {
-	$("#playAgain").val(0);
+	localStorage.setItem("playAgain", 0);
 	location.reload();
 }
 
@@ -217,6 +218,7 @@ $(function() {
 		$("#player-time").show();
 	});
 	
-	if($("#playAgain").val()==1)
+	var again = localStorage.getItem("playAgain");
+	if(again == 1)
 		play(3);
 });
