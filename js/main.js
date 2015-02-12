@@ -1,17 +1,32 @@
 var gameMode;
 var gen_initial_max_rand;
-var gen_initial_max_size = 5;
-var gen_nr_ops = 5;
-var time = 3;
-var currentStack = new StackOps();
-var is_same = false;
-var currentGameStack = [];
-var finalGameStack = [];
-var win = 0;
-var score = 0;
-var val = 0;
-var moves = 0;
-var playAgain = 0;
+var gen_initial_max_size;
+var gen_nr_ops;
+var time;
+var currentStack;
+var is_same;
+var currentGameStack;
+var finalGameStack;
+var win;
+var score;
+var val;
+var moves;
+
+function resetVariables() {
+	gen_initial_max_size = 5;
+	gen_nr_ops = 5;
+	time = 300;
+	currentStack = new StackOps();
+	is_same = false;
+	currentGameStack = [];
+	finalGameStack = [];
+	win = 0;
+	score = 0;
+	val = 0;
+	moves = 0;
+}
+
+resetVariables();
 
 function generateInitialStack(stack) {
 	$("#current-stack-list").html("");
@@ -133,16 +148,6 @@ function setGameSizes() {
 	}, 500);
 }
 
-function reloadGame() {
-	localStorage.setItem("playAgain", 1);
-	location.reload();
-}
-
-function backToFirstPage() {
-	localStorage.setItem("playAgain", 0);
-	location.reload();
-}
-
 function play(gameMode) {
 	gameMode = gameMode;
 	$("#first-page").hide();
@@ -157,8 +162,6 @@ function play(gameMode) {
 	if(gameMode == 3) {
 		$("#back").hide();
 		setInterval(function () {
-			if(time >= 0)
-				time = time - 1;
 			$("#time").text(time);
 			if(time <= 10) {
 				$("#player-time .btn").addClass("btn-danger");
@@ -178,12 +181,32 @@ function play(gameMode) {
 				$("#restart-game").show();
 				$("#back").show();
 			}
+			if(time >= 0)
+				time--;
 		}, 1000);
 	} else {
 		$("#player-time").hide();
 	}
 	
 	newGame(1);
+}
+
+function reloadGame() {
+	resetVariables();
+	$("#new-game").show();
+	$("#player-score").show();
+	updateScore(val);
+	$("#player-time").show();
+	$("#restart-game").hide();
+	$("#back").hide();
+	$("#show-time-button").hide();
+	$("#time").text(time);
+	$("#player-time .btn").removeClass("btn-danger");
+	newGame(1);
+}
+
+function backToFirstPage() {
+	location.reload();
 }
 
 $(function() {
@@ -217,8 +240,4 @@ $(function() {
 		$("#back").hide();
 		$("#player-time").show();
 	});
-	
-	var again = localStorage.getItem("playAgain");
-	if(again == 1)
-		play(3);
 });
