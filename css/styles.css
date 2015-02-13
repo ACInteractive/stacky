@@ -87,6 +87,7 @@ and (min-width : 768px) {
 	background: #2b0e03;
 	opacity: 0.8;
 	color: #fff;
+	text-align: left;
 }
 
 #tutorial-description button {
