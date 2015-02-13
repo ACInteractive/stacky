@@ -33,11 +33,32 @@ body {
 	display: none;
 }
 
-#first-page {
-	background: url(../img/bg.jpg);
+#first-page, #tutorial-page  {
 	background-size: cover;
 	text-align: center;
 	overflow: auto;
+}
+
+@media only screen 
+and (max-width : 480px) {
+	#first-page, #tutorial-page  {
+		background: url(../img/bgS.jpg);
+	}
+}
+
+@media only screen 
+and (min-width : 480px) 
+and (max-width : 768px) {
+	#first-page, #tutorial-page  {
+		background: url(../img/bgM.jpg);
+	}
+}
+
+@media only screen 
+and (min-width : 768px) {
+	#first-page, #tutorial-page  {
+		background: url(../img/bgL.jpg);
+	}
 }
 
 #first-page button {
@@ -59,9 +80,6 @@ body {
 
 #tutorial-page {
 	display: none;
-	background: url(../img/bg.jpg);
-	background-size: cover;
-	overflow: auto;
 }
 
 #tutorial-description {
