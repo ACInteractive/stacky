@@ -12,6 +12,21 @@ var score;
 var val;
 var moves;
 
+function setCookie(cname, cvalue) {
+    document.cookie = cname + "=" + cvalue + "; ";
+} 
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+} 
+
 function resetVariables() {
 	gen_initial_max_size = 5;
 	gen_nr_ops = 5;
@@ -117,6 +132,8 @@ function newGame(win) {
 
 function setGameSizes() {
 	var contentHeight = $( window ).height();
+	var descriptionHeight = contentHeight - 40;
+	var textHeight = contentHeight - 110;
 	var gameContainerHeight = contentHeight - 67;
 	var gameWindowHeight = gameContainerHeight - 20;
 	var gameWindowPanelHeight = gameWindowHeight;
@@ -124,6 +141,11 @@ function setGameSizes() {
 	
 	$("#first-page").height(contentHeight);
 	$("#tutorial-page").height(contentHeight);
+	$("#options-page").height(contentHeight);
+	$("#tutorial-description").height(descriptionHeight);
+	$("#options-description").height(descriptionHeight);
+	$("#tutorial-text").height(textHeight);
+	$("#options-text").height(textHeight);
 	$("#content").height(contentHeight);
 	$("#game-container").height(gameContainerHeight);
 	$("#game-window").height(gameWindowHeight);
@@ -210,6 +232,12 @@ function backToFirstPage() {
 }
 
 $(function() {
+	if(getCookie("background-music") == 1) {
+		$("#music").trigger('play');
+		$("#bkg-music-on").removeClass("btn-default").addClass("btn-primary");
+		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
+	}
+		
 	setGameSizes();
 	
 	$("#play-button").click( function() {
@@ -219,6 +247,11 @@ $(function() {
 	
 	$("#tutorial-button").click( function() {
 		$("#tutorial-page").show();
+		$("#first-page").hide();
+	});
+	
+	$("#options-button").click( function() {
+		$("#options-page").show();
 		$("#first-page").hide();
 	});
 	
@@ -239,5 +272,20 @@ $(function() {
 		$("#show-time-button").hide();
 		$("#back").hide();
 		$("#player-time").show();
+	});
+	
+	$("#bkg-music-on").click( function() {
+		$("#music").trigger('play');
+		setCookie("background-music", "1");
+		$(this).removeClass("btn-default").addClass("btn-primary");
+		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
+	});
+	
+	$("#bkg-music-off").click( function() {
+		$("#music").trigger('pause');
+		$("#music").prop("currentTime",0);
+		setCookie("background-music", "0");
+		$(this).removeClass("btn-default").addClass("btn-primary");
+		$("#bkg-music-on").removeClass("btn-primary").addClass("btn-default");
 	});
 });

@@ -26,6 +26,10 @@ body {
 	background-position:center;
 }
 
+strong {
+	line-height: 30px;
+}
+
 #content {
 	width: 100%;
 	text-align: center;
@@ -41,7 +45,7 @@ body {
 
 @media only screen 
 and (max-width : 480px) {
-	#first-page, #tutorial-page  {
+	#first-page, #tutorial-page, #options-page {
 		background: url(../img/bgS.jpg);
 	}
 }
@@ -49,14 +53,14 @@ and (max-width : 480px) {
 @media only screen 
 and (min-width : 480px) 
 and (max-width : 768px) {
-	#first-page, #tutorial-page  {
+	#first-page, #tutorial-page, #options-page {
 		background: url(../img/bgM.jpg);
 	}
 }
 
 @media only screen 
 and (min-width : 768px) {
-	#first-page, #tutorial-page  {
+	#first-page, #tutorial-page, #options-page {
 		background: url(../img/bgL.jpg);
 	}
 }
@@ -67,7 +71,7 @@ and (min-width : 768px) {
 	opacity: 0.8;
 }
 
-#first-page #menu, #first-page #play-menu  {
+#first-page #menu, #first-page #play-menu {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
@@ -82,7 +86,11 @@ and (min-width : 768px) {
 	display: none;
 }
 
-#tutorial-description {
+#options-page {
+	display: none;
+}
+
+#tutorial-description, #options-description {
 	padding: 20px;
 	background: #2b0e03;
 	opacity: 0.8;
@@ -90,9 +98,27 @@ and (min-width : 768px) {
 	text-align: left;
 }
 
-#tutorial-description button {
+#tutorial-description-button, #options-description-button {
 	width: 100%;
-	margin: 5px 0;
+}
+
+#tutorial-description-button button, #options-description-button button {
+	width: 100%;
+}
+
+#tutorial-text, #options-text {
+	width: 100%;
+	overflow: auto;
+	margin-bottom: 20px;
+}
+
+#options-description .btn-group {
+	float: right;
+}
+
+#options-description .btn-group button {
+	width: auto;
+	margin: 0;
 }
 
 .panel {
