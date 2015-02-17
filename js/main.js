@@ -131,34 +131,32 @@ function newGame(win) {
 }
 
 function setGameSizes() {
-	var contentHeight = $( window ).height();
-	var descriptionHeight = contentHeight - 40;
-	var textHeight = contentHeight - 110;
-	var gameContainerHeight = contentHeight - 67;
-	var gameWindowHeight = gameContainerHeight - 20;
-	var gameWindowPanelHeight = gameWindowHeight;
-	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
-	
-	$("#first-page").height(contentHeight);
-	$("#tutorial-page").height(contentHeight);
-	$("#options-page").height(contentHeight);
-	$("#tutorial-description").height(descriptionHeight);
-	$("#options-description").height(descriptionHeight);
-	$("#tutorial-text").height(textHeight);
-	$("#options-text").height(textHeight);
-	$("#content").height(contentHeight);
-	$("#game-container").height(gameContainerHeight);
-	$("#game-window").height(gameWindowHeight);
-	$("#game-window .panel").height(gameWindowPanelHeight);
-	$("#moves .panel-body").height(gameWindowPanelBodyHeight);
-	$("#current-stack .panel-body").height(gameWindowPanelBodyHeight);
-	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
-		
 	setTimeout(function() {
+		var contentHeight = $( window ).height();
+		var descriptionHeight = contentHeight - 40;
+		var textHeight = contentHeight - 110;
+		var gameContainerHeight = contentHeight - 67;
+		var gameWindowHeight = gameContainerHeight - 20;
+		var gameWindowPanelHeight = gameWindowHeight;
+		var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
 		var stacksWidth = $( window ).width() - 107;
 		var stackWidth = (stacksWidth - 10) / 2;
 		var stackItemsWidth = stackWidth - 10;
 		
+		$("#first-page").height(contentHeight);
+		$("#tutorial-page").height(contentHeight);
+		$("#options-page").height(contentHeight);
+		$("#tutorial-description").height(descriptionHeight);
+		$("#options-description").height(descriptionHeight);
+		$("#tutorial-text").height(textHeight);
+		$("#options-text").height(textHeight);
+		$("#content").height(contentHeight);
+		$("#game-container").height(gameContainerHeight);
+		$("#game-window").height(gameWindowHeight);
+		$("#game-window .panel").height(gameWindowPanelHeight);
+		$("#moves .panel-body").height(gameWindowPanelBodyHeight);
+		$("#current-stack .panel-body").height(gameWindowPanelBodyHeight);
+		$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
 		$("#stacks").width(stacksWidth);
 		$("#current-stack").width(stackWidth);
 		$("#final-stack").width(stackWidth);
