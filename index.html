@@ -11,6 +11,25 @@
 	window.addEventListener('load', function () {
 		FastClick.attach(document.body);
 	}, false);
+	
+	var admobid = {};
+	if( /(android)/i.test(navigator.userAgent) ) { 
+		admobid = { // for Android
+			banner: 'ca-app-pub-6602141759901182/1377970379'
+		};
+	} 
+	
+	function initApp() {
+		if (AdMob) {
+			AdMob.createBanner({
+				adId : admobid.banner,
+				position : AdMob.AD_POSITION.TOP_CENTER,
+				autoShow : true
+			});
+		}
+	}
+	
+	document.addEventListener('deviceready', initApp, false);
 </script> 
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/styles.css">

@@ -3,17 +3,17 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.working.stacky"
         versionCode = "1" 
-        version     = "1.1.0" >
+        version     = "1.2.0" >
 
     <!-- versionCode is optional and Android only -->
 
     <name>Stacky</name>
 
     <description>
-        Stack the bars into the right order
+        Stack the bars into the right order in as few moves as possible
     </description>
 
-    <author href="https://build.phonegap.com" email="support@phonegap.com">
+    <author href="https://build.phonegap.com" email="ciulea@gmail.com">
         Alex si Adi
     </author>
 	
@@ -22,5 +22,9 @@
 	<preference name="fullscreen" value="true" />
 	
 	<preference name="phonegap-version" value="3.6.3" />
+	
+	<preference name="permissions" value="none" />
+	
+	<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io"/>
 
 </widget>
