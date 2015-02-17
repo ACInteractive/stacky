@@ -37,8 +37,9 @@ strong {
 	display: none;
 }
 
-#first-page, #tutorial-page  {
+#first-page, #tutorial-page, #options-page  {
 	background-size: cover;
+	background-position: center;
 	text-align: center;
 	overflow: auto;
 }
@@ -46,7 +47,7 @@ strong {
 @media only screen 
 and (max-width : 480px) {
 	#first-page, #tutorial-page, #options-page {
-		background: url(../img/bgS.jpg);
+		background-image: url(../img/bgS.jpg);
 	}
 }
 
@@ -54,14 +55,14 @@ and (max-width : 480px) {
 and (min-width : 480px) 
 and (max-width : 768px) {
 	#first-page, #tutorial-page, #options-page {
-		background: url(../img/bgM.jpg);
+		background-image: url(../img/bgM.jpg);
 	}
 }
 
 @media only screen 
 and (min-width : 768px) {
 	#first-page, #tutorial-page, #options-page {
-		background: url(../img/bgL.jpg);
+		background-image: url(../img/bgL.jpg);
 	}
 }
 
