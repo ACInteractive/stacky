@@ -253,11 +253,12 @@ $(function() {
 		$("#first-page").hide();
 	});
 	
-	$("#ready-to-play-button").click( function() {
+	$(".back-to-main-menu-button").click( function() {
 		$("#first-page").show();
-		$("#play-menu").show();
-		$("#menu").hide();
+		$("#menu").show();
 		$("#tutorial-page").hide();
+		$("#options-page").hide();
+		$("#play-menu").hide();
 	});
 	
 	$(".hide-time").click( function() {

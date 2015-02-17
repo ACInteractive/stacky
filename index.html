@@ -42,27 +42,27 @@
     </audio>
 	<div id="first-page">
         <div id="menu">
-            <button id="play-button" class="btn btn-lg btn-success" type="button">
+            <button id="play-button" class="btn btn-lg btn-success">
                 Play
             </button>
-            <button id="tutorial-button" class="btn btn-lg btn-warning" type="button">
+            <button id="tutorial-button" class="btn btn-lg btn-warning">
                 How to play
             </button>
-            <button id="options-button" class="btn btn-lg btn-primary" type="button">
+            <button id="options-button" class="btn btn-lg btn-primary">
                 Options
             </button>
         </div>
         <div id="play-menu">
-            <button class="btn btn-lg btn-success" type="button" onClick="play(1)">
+            <button class="btn btn-lg btn-success" onClick="play(1)">
                 Learning game 
             </button>
-            <button class="btn btn-lg btn-warning" type="button" onClick="play(2)">
+            <button class="btn btn-lg btn-warning" onClick="play(2)">
                 Normal game 
             </button>
-            <button class="btn btn-lg btn-primary" type="button" onClick="play(3)">
+            <button class="btn btn-lg btn-primary" onClick="play(3)">
                 Against the clock
             </button>
-            <button class="btn btn-lg btn-info" type="button" onClick="backToFirstPage()">
+            <button class="btn btn-lg btn-info back-to-main-menu-button">
                 Back
             </button>
         </div>
@@ -71,20 +71,20 @@
     	<div class="panel panel-default">
 			<div class="panel-body">
             	<div id="new-game">
-                	<button class="btn btn-lg btn-success" type="button" onClick="newGame(0);">
+                	<button class="btn btn-lg btn-success" onClick="newGame(0);">
                     	<span class="glyphicon glyphicon-play" aria-hidden="true"></span> 
                     </button>
                 </div>
                 <div id="restart-game">
-                	<button class="btn btn-lg btn-success" type="button" onClick="reloadGame();">
+                	<button class="btn btn-lg btn-success" onClick="reloadGame();">
                     	<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 
                     </button>
                 </div>
             	<div id="player-score" class="btn-group" role="group" aria-label="Your Score">
-                	<button class="btn btn-lg btn-primary" type="button">
+                	<button class="btn btn-lg btn-primary">
                     	<span class="glyphicon glyphicon-star" aria-hidden="true"></span> 
                     </button>
-                    <button class="btn btn-lg btn-primary" type="button">
+                    <button class="btn btn-lg btn-primary">
                     	<span id="score">0</span>
                     </button>
                 </div>
@@ -92,17 +92,17 @@
                 	<button class="btn btn-lg btn-default hide-time" type="button">
                     	<span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
                     </button>
-                    <button class="btn btn-lg btn-default hide-time" type="button">
+                    <button class="btn btn-lg btn-default hide-time">
                     	<span id="time">300</span>
                     </button>
                 </div>
                 <div id="back">
-                	<button class="btn btn-lg btn-default" type="button" onClick="backToFirstPage();">
+                	<button class="btn btn-lg btn-default" onClick="backToFirstPage();">
                     	<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> 
                     </button>
                 </div>
                 <div id="show-time-button">
-                	<button id="show-time" class="btn btn-lg btn-default" type="button">
+                	<button id="show-time" class="btn btn-lg btn-default">
                     	<span class="glyphicon glyphicon-time" aria-hidden="true"></span> 
                     </button>
                 </div>
@@ -203,8 +203,8 @@
                 </p>
             </div>
             <div id="tutorial-description-button">
-                <button id="ready-to-play-button" class="btn btn-lg btn-success" type="button">
-                    Ready to Play
+                <button class="btn btn-lg btn-info back-to-main-menu-button">
+                    Back
                 </button>
             </div>
         </div>	        
@@ -216,13 +216,13 @@
                     <h2>Game options</h2>
                     <strong>Background music</strong> 
                     <div id="background-music" class="btn-group" role="group" aria-label="...">
-                        <button id="bkg-music-on" type="button" class="btn btn-default">On</button>
-                        <button id="bkg-music-off" type="button" class="btn btn-primary">Off</button>
+                        <button id="bkg-music-on" class="btn btn-default">On</button>
+                        <button id="bkg-music-off" class="btn btn-primary">Off</button>
                     </div>
                 </p>
             </div>
             <div id="options-description-button">
-                <button id="back-to-main-menu-button" class="btn btn-lg btn-info" onClick="backToFirstPage()">
+                <button class="btn btn-lg btn-info back-to-main-menu-button">
                     Back
                 </button>
 			</div>

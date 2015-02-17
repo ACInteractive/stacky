@@ -26,6 +26,28 @@ body {
 	background-position:center;
 }
 
+@media only screen 
+and (max-width : 480px) {
+	body {
+		background-image: url(../img/bgS.jpg);
+	}
+}
+
+@media only screen 
+and (min-width : 480px) 
+and (max-width : 768px) {
+	body {
+		background-image: url(../img/bgM.jpg);
+	}
+}
+
+@media only screen 
+and (min-width : 768px) {
+	body {
+		background-image: url(../img/bgL.jpg);
+	}
+}
+
 strong {
 	line-height: 30px;
 }
@@ -38,34 +60,8 @@ strong {
 }
 
 #first-page, #tutorial-page, #options-page  {
-	background-size: cover;
-	background-position: center;
 	text-align: center;
-	overflow: auto;
 }
-
-@media only screen 
-and (max-width : 480px) {
-	#first-page, #tutorial-page, #options-page {
-		background-image: url(../img/bgS.jpg);
-	}
-}
-
-@media only screen 
-and (min-width : 480px) 
-and (max-width : 768px) {
-	#first-page, #tutorial-page, #options-page {
-		background-image: url(../img/bgM.jpg);
-	}
-}
-
-@media only screen 
-and (min-width : 768px) {
-	#first-page, #tutorial-page, #options-page {
-		background-image: url(../img/bgL.jpg);
-	}
-}
-
 #first-page button {
 	width: 100%;
 	margin: 5px 0;
