@@ -11,7 +11,6 @@ var win;
 var score;
 var val;
 var moves;
-var media = new Media("mp3/background.mp3");
 
 function resetVariables() {
 	gen_initial_max_size = 5;
