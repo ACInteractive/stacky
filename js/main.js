@@ -11,6 +11,7 @@ var win;
 var score;
 var val;
 var moves;
+var media = new Media("mp3/background.mp3");
 
 function resetVariables() {
 	gen_initial_max_size = 5;
@@ -214,6 +215,7 @@ function backToFirstPage() {
 
 $(function() {
 	if(localStorage.getItem('background-music') == 1) {
+		media.play({ numberOfLoops: 2 });
 		$("#bkg-music-on").removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
 	}
@@ -258,14 +260,14 @@ $(function() {
 	});
 	
 	$("#bkg-music-on").click( function() {
-		playAudio("mp3/background.mp3");
+		media.play({ numberOfLoops: 2 });
 		localStorage.setItem('background-music','1');
 		$(this).removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
 	});
 	
 	$("#bkg-music-off").click( function() {
-		stopAudio();
+		media.stop();
 		localStorage.setItem('background-music','0');
 		$(this).removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-on").removeClass("btn-primary").addClass("btn-default");
