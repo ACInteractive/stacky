@@ -31,8 +31,11 @@
 		
 		var media = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
 		
-		if(localStorage.getItem('background-music') == 1)
+		if(localStorage.getItem('background-music') == 1) {
+			media.stop();
+			media.release();
 			media.play();
+		}
 			
 		$("#bkg-music-on").click( function() {
 			media.play();
@@ -43,6 +46,7 @@
 		
 		$("#bkg-music-off").click( function() {
 			media.stop();
+			media.release();
 			localStorage.setItem('background-music','0');
 			$(this).removeClass("btn-default").addClass("btn-primary");
 			$("#bkg-music-on").removeClass("btn-primary").addClass("btn-default");
