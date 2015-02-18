@@ -30,9 +30,23 @@
 		}
 		
 		var media = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
-		media.play();
-		//if(localStorage.getItem('background-music') == 1)
-		//	playAudio("mp3/background.mp3");
+		
+		if(localStorage.getItem('background-music') == 1)
+			media.play();
+			
+		$("#bkg-music-on").click( function() {
+			media.play();
+			localStorage.setItem('background-music','1');
+			$(this).removeClass("btn-default").addClass("btn-primary");
+			$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
+		});
+		
+		$("#bkg-music-off").click( function() {
+			media.stop();
+			localStorage.setItem('background-music','0');
+			$(this).removeClass("btn-default").addClass("btn-primary");
+			$("#bkg-music-on").removeClass("btn-primary").addClass("btn-default");
+		});
 	}
 	
 	document.addEventListener('deviceready', initApp, false);

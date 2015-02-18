@@ -257,18 +257,4 @@ $(function() {
 		$("#back").hide();
 		$("#player-time").show();
 	});
-	
-	$("#bkg-music-on").click( function() {
-		media.play({ numberOfLoops: 2 });
-		localStorage.setItem('background-music','1');
-		$(this).removeClass("btn-default").addClass("btn-primary");
-		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
-	});
-	
-	$("#bkg-music-off").click( function() {
-		media.stop();
-		localStorage.setItem('background-music','0');
-		$(this).removeClass("btn-default").addClass("btn-primary");
-		$("#bkg-music-on").removeClass("btn-primary").addClass("btn-default");
-	});
 });
