@@ -12,21 +12,6 @@ var score;
 var val;
 var moves;
 
-function setCookie(cname, cvalue) {
-    document.cookie = cname + "=" + cvalue + "; ";
-} 
-
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i=0; i<ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0)==' ') c = c.substring(1);
-        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
-    }
-    return "";
-} 
-
 function resetVariables() {
 	gen_initial_max_size = 5;
 	gen_nr_ops = 5;
@@ -131,41 +116,39 @@ function newGame(win) {
 }
 
 function setGameSizes() {
-	setTimeout(function() {
-		var contentHeight = $( window ).height();
-		var descriptionHeight = contentHeight - 40;
-		var textHeight = contentHeight - 110;
-		var gameContainerHeight = contentHeight - 67;
-		var gameWindowHeight = gameContainerHeight - 20;
-		var gameWindowPanelHeight = gameWindowHeight;
-		var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
-		var stacksWidth = $( window ).width() - 107;
-		var stackWidth = (stacksWidth - 10) / 2;
-		var stackItemsWidth = stackWidth - 10;
-		
-		$("#first-page").height(contentHeight);
-		$("#tutorial-page").height(contentHeight);
-		$("#options-page").height(contentHeight);
-		$("#tutorial-description").height(descriptionHeight);
-		$("#options-description").height(descriptionHeight);
-		$("#tutorial-text").height(textHeight);
-		$("#options-text").height(textHeight);
-		$("#content").height(contentHeight);
-		$("#game-container").height(gameContainerHeight);
-		$("#game-window").height(gameWindowHeight);
-		$("#game-window .panel").height(gameWindowPanelHeight);
-		$("#moves .panel-body").height(gameWindowPanelBodyHeight);
-		$("#current-stack .panel-body").height(gameWindowPanelBodyHeight);
-		$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
-		$("#stacks").width(stacksWidth);
-		$("#current-stack").width(stackWidth);
-		$("#final-stack").width(stackWidth);
-    	$("#current-stack-list").width(stackItemsWidth);
-		$("#final-stack-list").width(stackItemsWidth);
-		
-		$("#points").css("top",3);
-		$("#points").css("left",118);
-	}, 500);
+	var contentHeight = $( window ).height();
+	var descriptionHeight = contentHeight - 40;
+	var textHeight = contentHeight - 110;
+	var gameContainerHeight = contentHeight - 67;
+	var gameWindowHeight = gameContainerHeight - 20;
+	var gameWindowPanelHeight = gameWindowHeight;
+	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
+	var stacksWidth = $( window ).width() - 107;
+	var stackWidth = (stacksWidth - 10) / 2;
+	var stackItemsWidth = stackWidth - 10;
+	
+	$("#first-page").height(contentHeight);
+	$("#tutorial-page").height(contentHeight);
+	$("#options-page").height(contentHeight);
+	$("#tutorial-description").height(descriptionHeight);
+	$("#options-description").height(descriptionHeight);
+	$("#tutorial-text").height(textHeight);
+	$("#options-text").height(textHeight);
+	$("#content").height(contentHeight);
+	$("#game-container").height(gameContainerHeight);
+	$("#game-window").height(gameWindowHeight);
+	$("#game-window .panel").height(gameWindowPanelHeight);
+	$("#moves .panel-body").height(gameWindowPanelBodyHeight);
+	$("#current-stack .panel-body").height(gameWindowPanelBodyHeight);
+	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
+	$("#stacks").width(stacksWidth);
+	$("#current-stack").width(stackWidth);
+	$("#final-stack").width(stackWidth);
+	$("#current-stack-list").width(stackItemsWidth);
+	$("#final-stack-list").width(stackItemsWidth);
+	
+	$("#points").css("top",3);
+	$("#points").css("left",118);
 }
 
 function play(gameMode) {
@@ -230,13 +213,15 @@ function backToFirstPage() {
 }
 
 $(function() {
-	if(getCookie("background-music") == 1) {
+	if(localStorage.getItem('background-music') == 1) {
 		$("#music").trigger('play');
 		$("#bkg-music-on").removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
 	}
 		
-	setGameSizes();
+	setTimeout(function() {
+		setGameSizes();
+	}, 1000);
 	
 	$("#play-button").click( function() {
 		$("#play-menu").show();
@@ -275,7 +260,7 @@ $(function() {
 	
 	$("#bkg-music-on").click( function() {
 		$("#music").trigger('play');
-		setCookie("background-music", "1");
+		localStorage.setItem('background-music','1');
 		$(this).removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
 	});
@@ -283,7 +268,7 @@ $(function() {
 	$("#bkg-music-off").click( function() {
 		$("#music").trigger('pause');
 		$("#music").prop("currentTime",0);
-		setCookie("background-music", "0");
+		localStorage.setItem('background-music','0');
 		$(this).removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-on").removeClass("btn-primary").addClass("btn-default");
 	});
