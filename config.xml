@@ -27,6 +27,8 @@
 	
 	<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io"/>
 	
+	<feature name="http://api.phonegap.com/1.0/media" />
+
 	<feature name="Media">
 		<param name="android-package" value="org.apache.cordova.media.AudioHandler" />
 	</feature>

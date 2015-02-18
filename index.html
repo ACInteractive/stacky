@@ -9,6 +9,8 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="application/javascript" src="js/fastclick.js"></script> 
 <script type="application/javascript">
+	var media = new Media(src, mediaSuccess, [mediaError], [mediaStatus]);
+
 	window.addEventListener('load', function () {
 		FastClick.attach(document.body);
 	}, false);
