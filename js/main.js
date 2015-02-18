@@ -212,7 +212,7 @@ function backToFirstPage() {
 	location.reload();
 }
 
-$(function() {
+$(function() {		
 	setTimeout(function() {
 		setGameSizes();
 	}, 1000);

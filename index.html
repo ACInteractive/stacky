@@ -35,6 +35,8 @@
 			media.stop();
 			media.release();
 			media.play();
+			$("#bkg-music-on").removeClass("btn-default").addClass("btn-primary");
+			$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
 		}
 			
 		$("#bkg-music-on").click( function() {
