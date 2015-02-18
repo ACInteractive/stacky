@@ -214,7 +214,7 @@ function backToFirstPage() {
 
 $(function() {
 	if(localStorage.getItem('background-music') == 1) {
-		$("#music").trigger('play');
+		$("#music").prop('muted', false);
 		$("#bkg-music-on").removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
 	}
@@ -259,15 +259,14 @@ $(function() {
 	});
 	
 	$("#bkg-music-on").click( function() {
-		$("#music").trigger('play');
+		$("#music").prop('muted', false);
 		localStorage.setItem('background-music','1');
 		$(this).removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
 	});
 	
 	$("#bkg-music-off").click( function() {
-		$("#music").trigger('pause');
-		$("#music").prop("currentTime",0);
+		$("#music").prop('muted', true);
 		localStorage.setItem('background-music','0');
 		$(this).removeClass("btn-default").addClass("btn-primary");
 		$("#bkg-music-on").removeClass("btn-primary").addClass("btn-default");
