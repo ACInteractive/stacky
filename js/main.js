@@ -213,12 +213,6 @@ function backToFirstPage() {
 }
 
 $(function() {
-	if(localStorage.getItem('background-music') == 1) {
-		media.play({ numberOfLoops: 2 });
-		$("#bkg-music-on").removeClass("btn-default").addClass("btn-primary");
-		$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
-	}
-		
 	setTimeout(function() {
 		setGameSizes();
 	}, 1000);
