@@ -312,12 +312,11 @@ $(function() {
 		$("#player-time").show();
 	});
 	
-<<<<<<< HEAD
 	$("#theme-select").change( function() {
 		localStorage.setItem("theme",$(this).val());
 		setTheme();
 	});
-=======
+	
 	if(localStorage.getItem('hs') != 1) {
 		localStorage.setItem('hs','0');
 		
@@ -346,5 +345,4 @@ $(function() {
 	}
 	
 	$("#highscores-container").html(highscoreshtml);
->>>>>>> de98fae1101fd67776b9c3e4ab64e558f31ac088
 });
