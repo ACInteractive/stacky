@@ -29,7 +29,15 @@
 			});
 		}
 		
-		var media = new Media("http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3");
+		/*var media;
+		var loop = function (status) {
+			if (status === Media.MEDIA_STOPPED) {
+				media.play();
+			}
+		};
+		media = new Media("/audio/background.mp3.mp3", null, null, loop);*/
+		
+		var media = new Media("/background.mp3");
 		
 		if(localStorage.getItem('background-music') == 1) {
 			media.stop();
