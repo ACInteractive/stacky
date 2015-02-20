@@ -83,11 +83,15 @@ strong {
 	display: none;
 }
 
+#highscores-page {
+	display: none;
+}
+
 #options-page {
 	display: none;
 }
 
-#tutorial-description, #options-description {
+#highscores-description, #tutorial-description, #options-description {
 	padding: 20px;
 	background: #2b0e03;
 	opacity: 0.8;
@@ -95,15 +99,15 @@ strong {
 	text-align: left;
 }
 
-#tutorial-description-button, #options-description-button {
+#highscores-description-button , #tutorial-description-button, #options-description-button {
 	width: 100%;
 }
 
-#tutorial-description-button button, #options-description-button button {
+#highscores-description-button  button, #tutorial-description-button button, #options-description-button button {
 	width: 100%;
 }
 
-#tutorial-text, #options-text {
+#highscores-text, #tutorial-text, #options-text {
 	width: 100%;
 	overflow: auto;
 	margin-bottom: 20px;

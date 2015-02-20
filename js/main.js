@@ -130,10 +130,13 @@ function setGameSizes() {
 	$("#first-page").height(contentHeight);
 	$("#tutorial-page").height(contentHeight);
 	$("#options-page").height(contentHeight);
+	$("#highscores-page").height(contentHeight);
 	$("#tutorial-description").height(descriptionHeight);
 	$("#options-description").height(descriptionHeight);
+	$("#highscores-description").height(descriptionHeight);
 	$("#tutorial-text").height(textHeight);
 	$("#options-text").height(textHeight);
+	$("#highscores-text").height(textHeight);
 	$("#content").height(contentHeight);
 	$("#game-container").height(gameContainerHeight);
 	$("#game-window").height(gameWindowHeight);
@@ -227,6 +230,11 @@ $(function() {
 		$("#first-page").hide();
 	});
 	
+	$("#highscores-button").click( function() {
+		$("#highscores-page").show();
+		$("#first-page").hide();
+	});
+	
 	$("#options-button").click( function() {
 		$("#options-page").show();
 		$("#first-page").hide();
@@ -236,6 +244,7 @@ $(function() {
 		$("#first-page").show();
 		$("#menu").show();
 		$("#tutorial-page").hide();
+		$("#highscores-page").hide();
 		$("#options-page").hide();
 		$("#play-menu").hide();
 	});
