@@ -11,6 +11,7 @@ var win;
 var score;
 var val;
 var moves;
+var theme;
 
 function resetVariables() {
 	gen_initial_max_size = 5;
@@ -215,11 +216,23 @@ function backToFirstPage() {
 	location.reload();
 }
 
+function setTheme() {
+	theme = localStorage.getItem("theme");
+	if(theme == null)
+		theme = 1;
+	$("#content").removeAttr("class");
+	$("#content").addClass("theme-"+theme);
+}
+
 $(function() {		
 	setTimeout(function() {
 		setGameSizes();
 	}, 1000);
 	
+	setTheme();
+	
+	$("#theme-select").val(localStorage.getItem("theme"));
+
 	$("#play-button").click( function() {
 		$("#play-menu").show();
 		$("#menu").hide();
@@ -259,5 +272,10 @@ $(function() {
 		$("#show-time-button").hide();
 		$("#back").hide();
 		$("#player-time").show();
+	});
+	
+	$("#theme-select").change( function() {
+		localStorage.setItem("theme",$(this).val());
+		setTheme();
 	});
 });
