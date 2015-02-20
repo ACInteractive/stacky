@@ -154,6 +154,42 @@ function setGameSizes() {
 	$("#points").css("left",118);
 }
 
+function sortNumber(a, b) {
+    return b - a;
+}
+
+function persistHighScores() {
+	if(localStorage.getItem('hs') == 0) {
+		localStorage.setItem(0, score);
+		localStorage.setItem('hs','1');
+	}
+					
+	var hsa = new Array();
+	hsa.length = 0;
+	for(i=0;i<5;i++) {
+		hsa.push(parseInt(localStorage.getItem(i)));
+	}
+										
+	hsa.push(score);
+	hsa.sort(sortNumber);
+					
+	for(i=0;i<5;i++) {
+		localStorage.setItem(i.toString(), hsa[i].toString());
+	}
+					
+	var highscoreshtml = "";
+	for(i=0;i<5;i++) {
+		if (hsa[i] == 0) {
+			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + " </h4>";
+		}
+		else {
+			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + hsa[i] + " </h4>";
+		}
+	}
+	
+	$("#highscores-container").html(highscoreshtml);
+}
+
 function play(gameMode) {
 	gameMode = gameMode;
 	$("#first-page").hide();
@@ -173,10 +209,12 @@ function play(gameMode) {
 				$("#player-time .btn").addClass("btn-danger");
 			}
 			if(time == 0) {
-				if (confirm("Game over! \nYou have earned " + score + " points. \nWell done!\n\nWant to play again?")) { 
+				if (confirm("Game over! \nYou have earned " + score + " points. \nWell done!\n\nWant to play again?")) {
+					persistHighScores();
 					reloadGame();
 				} 
-				else { 
+				else {
+					persistHighScores();
 					alert('Good bye!') 
 				};
 			}
@@ -260,4 +298,33 @@ $(function() {
 		$("#back").hide();
 		$("#player-time").show();
 	});
+	
+	if(localStorage.getItem('hs') != 1) {
+		localStorage.setItem('hs','0');
+		
+		localStorage.setItem('0', '0');
+		localStorage.setItem('1', '0');
+		localStorage.setItem('2', '0');
+		localStorage.setItem('3', '0');
+		localStorage.setItem('4', '0');
+		localStorage.setItem('5', '0');
+	}
+	
+	var hsa = new Array();
+	hsa.length = 0;
+	for(i=0;i<5;i++) {
+		hsa.push(localStorage.getItem(i));
+	}
+
+	var highscoreshtml = "";
+	for(i=0;i<5;i++) {
+		if (hsa[i] == 0) {
+			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + " </h4>";
+		}
+		else {
+			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + hsa[i] + " </h4>";
+		}
+	}
+	
+	$("#highscores-container").html(highscoreshtml);
 });
