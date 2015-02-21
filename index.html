@@ -29,39 +29,6 @@
 				autoShow : true
 			});
 		}
-		
-		/*var media;
-		var loop = function (status) {
-			if (status === Media.MEDIA_STOPPED) {
-				media.play();
-			}
-		};
-		media = new Media("/audio/background.mp3.mp3", null, null, loop);*/
-		
-		var media = new Media("/background.mp3");
-		
-		if(localStorage.getItem('background-music') == 1) {
-			media.stop();
-			media.release();
-			media.play();
-			$("#bkg-music-on").removeClass("btn-default").addClass("btn-primary");
-			$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
-		}
-			
-		$("#bkg-music-on").click( function() {
-			media.play();
-			localStorage.setItem('background-music','1');
-			$(this).removeClass("btn-default").addClass("btn-primary");
-			$("#bkg-music-off").removeClass("btn-primary").addClass("btn-default");
-		});
-		
-		$("#bkg-music-off").click( function() {
-			media.stop();
-			media.release();
-			localStorage.setItem('background-music','0');
-			$(this).removeClass("btn-default").addClass("btn-primary");
-			$("#bkg-music-on").removeClass("btn-primary").addClass("btn-default");
-		});
 	}
 	
 	document.addEventListener('deviceready', initApp, false);	
@@ -247,7 +214,12 @@
     	<div id="highscores-description">
         	<div id="highscores-text">
 				<p>
-					<h2>High Scores</h2>
+					<h2>
+                    	High Scores
+                        <button class="btn btn-warning" id="reset-highcores">
+                            Reset
+                        </button>
+                    </h2>
                     <p>
                     	Available for the <strong>Against the time</strong> game mode.
                     </p>
@@ -266,12 +238,6 @@
         	<div id="options-text">
                 <p>
                     <h2>Game options</h2>
-                    <strong>Background music</strong> 
-                    <div id="background-music" class="btn-group" role="group" aria-label="...">
-                        <button id="bkg-music-on" class="btn btn-default">On</button>
-                        <button id="bkg-music-off" class="btn btn-primary">Off</button>
-                    </div>
-                    <hr />
                     <strong>Theme</strong> 
                     <select id="theme-select" class="form-control">
                     	<option value="1">Simple</option>

@@ -333,6 +333,10 @@ strong {
 	position: absolute;
 }
 
+#highscores-text #reset-highcores {
+	float: right;
+}
+
 .theme-1 .color1 {
 	background: #e0f3fa;
 }
