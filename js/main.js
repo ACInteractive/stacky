@@ -159,11 +159,9 @@ function sortNumber(a, b) {
     return b - a;
 }
 
-function persistHighScores() {
-	if(localStorage.getItem('hs') == 0) {
-		localStorage.setItem(0, score);
+function persistHighScores() {		
+	if(localStorage.getItem('hs') == 0)
 		localStorage.setItem('hs','1');
-	}
 					
 	var hsa = new Array();
 	hsa.length = 0;
