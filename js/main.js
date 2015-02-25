@@ -12,6 +12,7 @@ var score;
 var val;
 var moves;
 var theme;
+var secondaryGameOverText;
 
 function resetVariables() {
 	gen_initial_max_size = 5;
@@ -117,7 +118,7 @@ function newGame(win) {
 }
 
 function setGameSizes() {
-	var contentHeight = $( window ).height();
+	var contentHeight = $( window ).height() - 50;
 	var descriptionHeight = contentHeight - 40;
 	var textHeight = contentHeight - 110;
 	var gameContainerHeight = contentHeight - 67;
@@ -132,6 +133,7 @@ function setGameSizes() {
 	$("#tutorial-page").height(contentHeight);
 	$("#options-page").height(contentHeight);
 	$("#highscores-page").height(contentHeight);
+	$("#game-over-back-screen").height(contentHeight);
 	$("#tutorial-description").height(descriptionHeight);
 	$("#options-description").height(descriptionHeight);
 	$("#highscores-description").height(descriptionHeight);
@@ -155,34 +157,48 @@ function setGameSizes() {
 	$("#points").css("left",118);
 }
 
-function sortNumber(a, b) {
-    return b - a;
+function sortHighScores(scoreArray, userArray, currentScore, currentUser) {
+    for(i=0; i<5; i++) {
+		if(currentScore > scoreArray[i]) {
+			for(j=4; j>i; j--) {
+				scoreArray[j] = scoreArray[j-1];
+				userArray[j] = userArray[j-1];
+			}
+			scoreArray[i] = currentScore;
+			userArray[i] = currentUser;
+			break;
+		}
+	}
 }
 
-function persistHighScores() {		
+function persistHighScores(u_temp, s_temp) {
 	if(localStorage.getItem('hs') == 0)
 		localStorage.setItem('hs','1');
 					
-	var hsa = new Array();
-	hsa.length = 0;
+	var hs_score = new Array();
+	var hs_user = new Array();
+	hs_score.length = 0;
+	hs_user.length = 0;
 	for(i=0;i<5;i++) {
-		hsa.push(parseInt(localStorage.getItem(i)));
+		hs_score.push(parseInt(localStorage.getItem("s_"+i)));
+		hs_user.push(localStorage.getItem("u_"+i));
 	}
 										
-	hsa.push(score);
-	hsa.sort(sortNumber);
+	sortHighScores(hs_score, hs_user, s_temp, u_temp);
 					
 	for(i=0;i<5;i++) {
-		localStorage.setItem(i.toString(), hsa[i].toString());
+		alert(hs_user[i]+" - "+hs_score[i]);
+		localStorage.setItem("s_"+i.toString(), hs_score[i].toString());
+		localStorage.setItem("u_"+i.toString(), hs_user[i]);
 	}
 					
 	var highscoreshtml = "";
 	for(i=0;i<5;i++) {
-		if (hsa[i] == 0) {
+		if (hs_score[i] == 0) {
 			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + " </h4>";
 		}
 		else {
-			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + hsa[i] + " </h4>";
+			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + ". " + hs_user[i] + " " + hs_score[i] + " </h4>";
 		}
 	}
 	
@@ -208,14 +224,23 @@ function play(gameMode) {
 				$("#player-time .btn").addClass("btn-danger");
 			}
 			if(time == 0) {
-				if (confirm("Game over! \nYou have earned " + score + " points. \nWell done!\n\nWant to play again?")) {
-					persistHighScores();
-					reloadGame();
-				} 
-				else {
-					persistHighScores();
-					alert('Good bye!') 
-				};
+				$("#game-over-back-screen").show();
+				$("#game-over").show();
+				if(score == 0)
+					secondaryGameOverText = "Have you even tried?";
+				else if(score > 0 && score <= 50)
+					secondaryGameOverText = "Ok, is this your first game?";
+				else if(score > 50 && score <= 100)
+					secondaryGameOverText = "Not bad for a beginner!";
+				else if(score > 100 && score <= 150)
+					secondaryGameOverText = "Good job my friend!";
+				else if(score > 150 && score <= 200)
+					secondaryGameOverText = "Wow, you look like a pro!";
+				else if(score > 200)
+					secondaryGameOverText = "Amazing! You are some kind of a genius!";	
+			
+				$("#userscore").val(score);
+				$("#game-over-text").html("<p>You have earned " + score + " points.</p><p>" + secondaryGameOverText + "</p>" );
 			}
 			if(time < 0) {
 				$("#new-game").hide();
@@ -261,9 +286,7 @@ function setTheme() {
 }
 
 $(function() {		
-	setTimeout(function() {
-		setGameSizes();
-	}, 1000);
+	setGameSizes();
 	
 	setTheme();
 	
@@ -318,27 +341,36 @@ $(function() {
 	if(localStorage.getItem('hs') != 1) {
 		localStorage.setItem('hs','0');
 		
-		localStorage.setItem('0', '0');
-		localStorage.setItem('1', '0');
-		localStorage.setItem('2', '0');
-		localStorage.setItem('3', '0');
-		localStorage.setItem('4', '0');
-		localStorage.setItem('5', '0');
+		localStorage.setItem('s_0', '0');
+		localStorage.setItem('s_1', '0');
+		localStorage.setItem('s_2', '0');
+		localStorage.setItem('s_3', '0');
+		localStorage.setItem('s_4', '0');
+		localStorage.setItem('s_5', '0');
+		
+		localStorage.setItem('u_0', '');
+		localStorage.setItem('u_1', '');
+		localStorage.setItem('u_2', '');
+		localStorage.setItem('u_3', '');
+		localStorage.setItem('u_4', '');
+		localStorage.setItem('u_5', '');
 	}
 	
-	var hsa = new Array();
-	hsa.length = 0;
+	var hs_score = new Array();
+	var hs_user = new Array();
+	hs_score.length = 0;
 	for(i=0;i<5;i++) {
-		hsa.push(localStorage.getItem(i));
+		hs_score.push(localStorage.getItem("s_"+i));
+		hs_user.push(localStorage.getItem("u_"+i));
 	}
 
 	var highscoreshtml = "";
 	for(i=0;i<5;i++) {
-		if (hsa[i] == 0) {
+		if (hs_score[i] == 0) {
 			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + " </h4>";
 		}
 		else {
-			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + hsa[i] + " </h4>";
+			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + ". " + hs_user[i] + " " + hs_score[i] + " </h4>";
 		}
 	}
 	

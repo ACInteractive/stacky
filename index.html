@@ -165,6 +165,27 @@
             </div>
 		</div>
         <div id="points"></div>
+        <div id="game-over-back-screen"></div>
+        <div id="game-over">
+        	<h3>Game over!</h3>
+            <div id="game-over-text"></div>
+            <hr />
+            <p>
+            	Please enter your name<br />
+                <input type="text" name="username" id="username" class="form-control" maxlength="10" value="" />
+                <input type="hidden" name="userscore" id="userscore" value="" />
+            </p>
+            <hr />
+            <p>Want to play again?</p>
+            <p>
+            	<button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); reloadGame(); $('#game-over-back-screen').hide(); $('#game-over').hide();" class="btn btn-lg btn-default">
+                    Yes
+                </button>
+                <button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over').hide();" class="btn btn-lg btn-default">
+                    No
+                </button>
+            </p>
+        </div>
     </div>
     <div id="tutorial-page">
     	<div id="tutorial-description">
