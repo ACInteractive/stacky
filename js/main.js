@@ -241,7 +241,7 @@ function play(gameMode) {
 				$("#userscore").val(score);
 				$("#game-over-text").html("<p>You have earned " + score + " points.</p><p>" + secondaryGameOverText + "</p>" );
 				
-				admobAd.showBannerAbsolute(0,0);
+				AdMob.showBannerAbsolute(0,0);
 			}
 			if(time < 0) {
 				$("#new-game").hide();
@@ -384,3 +384,30 @@ $(function() {
 		location.reload();
 	});
 });
+
+window.addEventListener('load', function () {
+	FastClick.attach(document.body);
+}, false);
+
+var admobid = {};
+if( /(android)/i.test(navigator.userAgent) ) { 
+	admobid = { // for Android
+		banner: 'ca-app-pub-6602141759901182/1377970379',
+		interstitial: 'ca-app-pub-6602141759901182/7934901173'
+	};
+} 
+
+function initApp() {
+	if (AdMob) {
+		AdMob.createBanner({
+			adId : admobid.banner,
+			position : AdMob.AD_POSITION.TOP_CENTER,
+			autoShow : false
+		});
+	}
+	
+	// preppare and load ad resource in background, e.g. at begining of game level
+	if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+}
+
+document.addEventListener('deviceready', initApp, false);

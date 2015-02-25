@@ -8,35 +8,8 @@
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/stackops.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
-<script type="application/javascript" src="js/fastclick.js"></script> 
-<script type="application/javascript">
-	window.addEventListener('load', function () {
-		FastClick.attach(document.body);
-	}, false);
-	
-	var admobid = {};
-	if( /(android)/i.test(navigator.userAgent) ) { 
-		admobid = { // for Android
-			banner: 'ca-app-pub-6602141759901182/1377970379',
-			interstitial: 'ca-app-pub-6602141759901182/7934901173'
-		};
-	} 
-	
-	function initApp() {
-		if (AdMob) {
-			AdMob.createBanner({
-				adId : admobid.banner,
-				position : AdMob.AD_POSITION.TOP_CENTER,
-				autoShow : false
-			});
-		}
-		
-		// preppare and load ad resource in background, e.g. at begining of game level
-		if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
-	}
-	
-	document.addEventListener('deviceready', initApp, false);	
-</script> 
+<script type="application/javascript" src="js/fastclick.js"></script>
+
 <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
