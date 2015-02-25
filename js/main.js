@@ -240,6 +240,8 @@ function play(gameMode) {
 			
 				$("#userscore").val(score);
 				$("#game-over-text").html("<p>You have earned " + score + " points.</p><p>" + secondaryGameOverText + "</p>" );
+				
+				admobAd.showBannerAbsolute(0,0);
 			}
 			if(time < 0) {
 				$("#new-game").hide();

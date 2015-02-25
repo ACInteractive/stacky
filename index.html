@@ -17,22 +17,22 @@
 	var admobid = {};
 	if( /(android)/i.test(navigator.userAgent) ) { 
 		admobid = { // for Android
-			//banner: 'ca-app-pub-6602141759901182/1377970379',
+			banner: 'ca-app-pub-6602141759901182/1377970379',
 			interstitial: 'ca-app-pub-6602141759901182/7934901173'
 		};
 	} 
 	
 	function initApp() {
-		/*if (AdMob) {
+		if (AdMob) {
 			AdMob.createBanner({
 				adId : admobid.banner,
 				position : AdMob.AD_POSITION.TOP_CENTER,
-				autoShow : true
+				autoShow : false
 			});
-		}*/
+		}
 		
 		// preppare and load ad resource in background, e.g. at begining of game level
-		if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:true} );
+		if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
 	}
 	
 	document.addEventListener('deviceready', initApp, false);	
@@ -182,10 +182,10 @@
             <hr />
             <p>Want to play again?</p>
             <p>
-            	<button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); reloadGame(); $('#game-over-back-screen').hide(); $('#game-over').hide();" class="btn btn-lg btn-default">
+            	<button onClick="javascript:admobAd.hideBanner(); persistHighScores($('#username').val(), $('#userscore').val()); reloadGame(); $('#game-over-back-screen').hide(); $('#game-over').hide();" class="btn btn-lg btn-default">
                     Yes
                 </button>
-                <button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over').hide();" class="btn btn-lg btn-default">
+                <button onClick="javascript:admobAd.hideBanner(); persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over').hide();" class="btn btn-lg btn-default">
                     No
                 </button>
             </p>
