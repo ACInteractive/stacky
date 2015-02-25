@@ -17,7 +17,7 @@ var secondaryGameOverText;
 function resetVariables() {
 	gen_initial_max_size = 5;
 	gen_nr_ops = 5;
-	time = 300;
+	time = 30;
 	currentStack = new StackOps();
 	is_same = false;
 	currentGameStack = [];
