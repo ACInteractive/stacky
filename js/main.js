@@ -17,7 +17,7 @@ var secondaryGameOverText;
 function resetVariables() {
 	gen_initial_max_size = 5;
 	gen_nr_ops = 5;
-	time = 30;
+	time = 300;
 	currentStack = new StackOps();
 	is_same = false;
 	currentGameStack = [];
@@ -118,7 +118,7 @@ function newGame(win) {
 }
 
 function setGameSizes() {
-	var contentHeight = $( window ).height() - 50;
+	var contentHeight = $( window ).height();
 	var descriptionHeight = contentHeight - 40;
 	var textHeight = contentHeight - 110;
 	var gameContainerHeight = contentHeight - 67;
@@ -187,7 +187,6 @@ function persistHighScores(u_temp, s_temp) {
 	sortHighScores(hs_score, hs_user, s_temp, u_temp);
 					
 	for(i=0;i<5;i++) {
-		alert(hs_user[i]+" - "+hs_score[i]);
 		localStorage.setItem("s_"+i.toString(), hs_score[i].toString());
 		localStorage.setItem("u_"+i.toString(), hs_user[i]);
 	}
@@ -286,7 +285,9 @@ function setTheme() {
 }
 
 $(function() {		
-	setGameSizes();
+	setTimeout(function() {
+		setGameSizes();
+	}, 1000);
 	
 	setTheme();
 	

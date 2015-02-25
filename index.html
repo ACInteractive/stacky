@@ -17,18 +17,25 @@
 	var admobid = {};
 	if( /(android)/i.test(navigator.userAgent) ) { 
 		admobid = { // for Android
-			banner: 'ca-app-pub-6602141759901182/1377970379'
+			//banner: 'ca-app-pub-6602141759901182/1377970379',
+			interstitial: 'ca-app-pub-6602141759901182/7934901173'
 		};
 	} 
 	
 	function initApp() {
-		if (AdMob) {
+		/*if (AdMob) {
 			AdMob.createBanner({
 				adId : admobid.banner,
 				position : AdMob.AD_POSITION.TOP_CENTER,
 				autoShow : true
 			});
-		}
+		}*/
+		
+		// preppare and load ad resource in background, e.g. at begining of game level
+		if(AdMob) AdMob.prepareInterstitial( {adId:admobid.interstitial, autoShow:false} );
+		
+		// show the interstitial later, e.g. at end of game level
+		if(AdMob) AdMob.showInterstitial();
 	}
 	
 	document.addEventListener('deviceready', initApp, false);	
