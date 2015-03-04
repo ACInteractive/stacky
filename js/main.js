@@ -106,12 +106,24 @@ function newGame(win) {
 		}
 	}
 	
-	var genStack = new Generator();
-	genStack.GenerateRandom(gen_initial_max_size, gen_initial_max_rand, gen_nr_ops);
+	while(1) {
+		var genStack = new Generator();
+		genStack.GenerateRandom(gen_initial_max_size, gen_initial_max_rand, gen_nr_ops);
 	
-	currentStack = new StackOps();
+		currentStack = new StackOps();
+		currentStack.Init(genStack.initial);
 	
-	currentStack.Init(genStack.initial);
+		is_same = (currentStack.stack.length == genStack.internal_stack.stack.length) && currentStack.stack.every(function(element, index) {
+			return element === genStack.internal_stack.stack[index]; 
+		});
+		
+		if (is_same == true) {
+			continue;
+		}
+		else {
+			break;
+		}
+	}
 	
 	generateInitialStack(genStack);
 	generateFinalStack(genStack);
