@@ -27,7 +27,7 @@
 	
 	<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />
 	
-	<gap:plugin name="com.phonegap.plugins.facebookconnect" version="<VERSION>">
+	<gap:plugin name="com.phonegap.plugins.facebookconnect" version="3.21.1">
         <param name="APP_ID" value="869524289776660" />
         <param name="APP_NAME" value="Stacky" />
     </gap:plugin>
