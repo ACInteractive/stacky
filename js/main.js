@@ -258,10 +258,8 @@ function play(gameMode) {
 						function (status) {		
 							var options = { method:"feed",
 											picture:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmiVpPt8eDpoytmqaT1D10VlW4j1ydCWO-anBYHutU6E7bCRJw',
-											name:'Test Post',
-											message:'I just scored ' + score + ' points on Stacky!',    
-											caption: 'Testing using phonegap plugin',
-											description: 'Posting photo using phonegap facebook plugin'
+											name:'New Highscore',
+											description: 'I just scored ' + score + ' points on Stacky!'
 										  };
 							facebookConnectPlugin.showDialog(options,
 								function (result) {
