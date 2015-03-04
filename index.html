@@ -29,6 +29,15 @@
 				autoShow : true
 			});
 		}
+		
+		var fbLoginSuccess = function (userData) {
+			alert("UserInfo: " + JSON.stringify(userData));
+		}
+		
+		facebookConnectPlugin.login(["public_profile"],
+			fbLoginSuccess,
+			function (error) { alert("" + error) }
+		);
 	}
 	
 	document.addEventListener('deviceready', initApp, false);	

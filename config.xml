@@ -14,7 +14,7 @@
     </description>
 
     <author href="https://build.phonegap.com" email="ciulea@gmail.com">
-        Alex si Adi
+        Adrian Ciulea and Alexandru Afrasinei
     </author>
 	
 	<preference name="orientation" value="portrait" />
@@ -26,5 +26,10 @@
 	<preference name="permissions" value="none" />
 	
 	<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />
+	
+	<gap:plugin name="com.phonegap.plugins.facebookconnect">
+        <param name="APP_ID" value="869524289776660" />
+        <param name="APP_NAME" value="Stacky" />
+    </gap:plugin>
 
 </widget>
