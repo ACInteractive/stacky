@@ -31,9 +31,10 @@
 		}
 		
 		var fbLoginSuccess = function (userData) {
-			alert("UserInfo: " + JSON.stringify(userData));
+			alert(0);
 			facebookConnectPlugin.getLoginStatus(
 				function (status) {
+					alert(1);
 					alert("current status: " + JSON.stringify(status));
 		
 					var options = { method:"feed" };
