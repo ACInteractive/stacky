@@ -257,7 +257,11 @@ function play(gameMode) {
 					facebookConnectPlugin.getLoginStatus(
 						function (status) {		
 							var options = { method:"feed",
-											message:'I just scored ' + score + ' points on Stacky!'
+											picture:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmiVpPt8eDpoytmqaT1D10VlW4j1ydCWO-anBYHutU6E7bCRJw',
+											name:'Test Post',
+											message:'I just scored ' + score + ' points on Stacky!',    
+											caption: 'Testing using phonegap plugin',
+											description: 'Posting photo using phonegap facebook plugin'
 										  };
 							facebookConnectPlugin.showDialog(options,
 								function (result) {
