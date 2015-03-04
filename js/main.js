@@ -252,6 +252,28 @@ function play(gameMode) {
 			
 				$("#userscore").val(score);
 				$("#game-over-text").html("<p>You have earned " + score + " points.</p><p>" + secondaryGameOverText + "</p>" );
+				
+				var fbLoginSuccess = function (userData) {
+					facebookConnectPlugin.getLoginStatus(
+						function (status) {		
+							var options = { method:"feed",
+											message:'I just scored ' + score + ' points on Stacky!'
+										  };
+							facebookConnectPlugin.showDialog(options,
+								function (result) {
+									alert("Your score has been posted.");
+								},
+							function (e) {
+								alert("Failed: " + e);
+							});
+						}
+					);
+				};
+				
+				facebookConnectPlugin.login(["public_profile"],
+					fbLoginSuccess,
+					function (error) { alert("" + error) }
+				);
 			}
 			if(time < 0) {
 				$("#new-game").hide();
