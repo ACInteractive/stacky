@@ -216,6 +216,32 @@ function persistHighScores(u_temp, s_temp) {
 	$("#highscores-container").html(highscoreshtml);
 }
 
+function postOnFacebook() {
+	var fbLoginSuccess = function (userData) {
+		facebookConnectPlugin.getLoginStatus(
+			function (status) {		
+				var options = { method:"feed",
+								picture:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmiVpPt8eDpoytmqaT1D10VlW4j1ydCWO-anBYHutU6E7bCRJw',
+								name:'New Highscore',
+								description: 'I just scored ' + score + ' points on Stacky!'
+							  };
+				facebookConnectPlugin.showDialog(options,
+					function (result) {
+						alert("Your score has been posted.");
+					},
+				function (e) {
+					alert("Failed: " + e);
+				});
+			}
+		);
+	};
+	
+	facebookConnectPlugin.login(["public_profile"],
+		fbLoginSuccess,
+		function (error) { alert("" + error) }
+	);
+}
+
 function play(gameMode) {
 	gameMode = gameMode;
 	$("#first-page").hide();
@@ -252,30 +278,6 @@ function play(gameMode) {
 			
 				$("#userscore").val(score);
 				$("#game-over-text").html("<p>You have earned " + score + " points.</p><p>" + secondaryGameOverText + "</p>" );
-				
-				var fbLoginSuccess = function (userData) {
-					facebookConnectPlugin.getLoginStatus(
-						function (status) {		
-							var options = { method:"feed",
-											picture:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmiVpPt8eDpoytmqaT1D10VlW4j1ydCWO-anBYHutU6E7bCRJw',
-											name:'New Highscore',
-											description: 'I just scored ' + score + ' points on Stacky!'
-										  };
-							facebookConnectPlugin.showDialog(options,
-								function (result) {
-									alert("Your score has been posted.");
-								},
-							function (e) {
-								alert("Failed: " + e);
-							});
-						}
-					);
-				};
-				
-				facebookConnectPlugin.login(["public_profile"],
-					fbLoginSuccess,
-					function (error) { alert("" + error) }
-				);
 			}
 			if(time < 0) {
 				$("#new-game").hide();
