@@ -218,6 +218,7 @@ function persistHighScores(u_temp, s_temp) {
 }
 
 var fbLoginSuccess = function (userData) {
+	alert(1);
 	facebookConnectPlugin.getLoginStatus(
 		function (status) {
 			userID = userData.userID;
