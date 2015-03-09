@@ -348,15 +348,19 @@ function saveOptions() {
 		localStorage.setItem('user-name', $("#auth-user-input").val());
 	}
 	else if(at == 2 ){
-		if (response.status !== 'connected') {
-			facebookConnectPlugin.login(["public_profile"],
-				fbLoginSuccess,
-				function (error) { alert("" + error) }
+		facebookConnectPlugin.getLoginStatus(function(response) {
+			if (response.status !== 'connected') {
+				facebookConnectPlugin.login(["public_profile"],
+					fbLoginSuccess,
+					function (error) { alert("" + error) }
+				);
+			}
+			facebookConnectPlugin.api('<user-id>/?fields=last_name', null,
+				function(response) {
+					alert(response);
+					localStorage.setItem('user-name', response);
+				}
 			);
-		}
-		facebookConnectPlugin.api('/me', {fields: 'last_name'}, function(response) {
-			alert(response);
-			localStorage.setItem('user-name', response);
 		});
 	}
 }
