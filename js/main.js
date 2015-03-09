@@ -14,7 +14,6 @@ var moves;
 var theme;
 var secondaryGameOverText;
 var userID;
-var fbLoginSuccess;
 
 function resetVariables() {
 	gen_initial_max_size = 5;
@@ -217,21 +216,17 @@ function persistHighScores(u_temp, s_temp) {
 	
 	$("#highscores-container").html(highscoreshtml);
 }
-
-fbLoginSuccess = function (userData) {
-	alert(1);
-	facebookConnectPlugin.getLoginStatus(
-		function (status) {
-			userID = userData.userID;
-		}
-	);
-};
 	
 function postOnFacebook() {	
 	facebookConnectPlugin.getLoginStatus(function(response) {
 		if (response.status !== 'connected') {
 			facebookConnectPlugin.login(["public_profile"],
-				fbLoginSuccess,
+				function (userData) {
+					facebookConnectPlugin.getLoginStatus(
+						function (status) {
+						}
+					);
+				},
 				function (error) { alert("" + error) }
 			);
 		}
@@ -355,7 +350,14 @@ function saveOptions() {
 		facebookConnectPlugin.getLoginStatus(function(response) {
 			if (response.status !== 'connected') {
 				facebookConnectPlugin.login(["public_profile"],
-					fbLoginSuccess,
+					function (userData) {
+						alert(1);
+						facebookConnectPlugin.getLoginStatus(
+							function (status) {
+								userID = userData.userID;
+							}
+						);
+					},
 					function (error) { alert("" + error) }
 				);
 			}
