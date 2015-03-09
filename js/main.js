@@ -218,8 +218,7 @@ function persistHighScores(u_temp, s_temp) {
 
 var fbLoginSuccess = function (userData) {
 	facebookConnectPlugin.getLoginStatus(
-		function (status) {		
-			alert("Connecting ...");
+		function (status) {
 		}
 	);
 };
@@ -228,22 +227,21 @@ function postOnFacebook() {
 	facebookConnectPlugin.getLoginStatus(function(response) {
 		alert("status is: " + response.status);
 		if (response.status !== 'connected') {
-			alert("NOT connected");
 			facebookConnectPlugin.login(["public_profile"],
 				fbLoginSuccess,
 				function (error) { alert("" + error) }
 			);
 		}
-		alert("Is connected");
 		var options = { method:"feed",
 						picture:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmiVpPt8eDpoytmqaT1D10VlW4j1ydCWO-anBYHutU6E7bCRJw',
 						name:'New Highscore',
-						description: 'I just scored ' + score + ' points on Stacky!'
+						description: 'I just scored ' + score + ' points on Stacky!',
+						caption: 'Do you think you can do better?'
 					  };
 					  
 		facebookConnectPlugin.showDialog(options,
 			function (result) {
-				alert("Your score has been posted.");
+				alert("Your score has been posted on your Facebook account.");
 			},
 			function (e) {
 				alert("Failed: " + e);
