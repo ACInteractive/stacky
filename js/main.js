@@ -225,7 +225,6 @@ var fbLoginSuccess = function (userData) {
 	
 function postOnFacebook() {	
 	facebookConnectPlugin.getLoginStatus(function(response) {
-		alert("status is: " + response.status);
 		if (response.status !== 'connected') {
 			facebookConnectPlugin.login(["public_profile"],
 				fbLoginSuccess,
@@ -286,6 +285,7 @@ function play(gameMode) {
 			
 				$("#userscore").val(score);
 				$("#game-over-text").html("<p>You have earned " + score + " points.</p><p>" + secondaryGameOverText + "</p>" );
+				$("#username").val(localStorage.getItem('user-name'));
 			}
 			if(time < 0) {
 				$("#new-game").hide();
@@ -335,7 +335,6 @@ function onChangeAuthOption() {
 	if(x == 1) {
 		localStorage.setItem('auth-type', '1');
 		$("#auth-user-input-section").show();
-		$("#auth-user-input-section").html("<input id='auth-user-input' class='form-control' type='text' name='insert your name'></input>");
 	}
 	else if(x == 2) {
 		localStorage.setItem('auth-type', '2');
@@ -349,8 +348,16 @@ function saveOptions() {
 		localStorage.setItem('user-name', $("#auth-user-input").val());
 	}
 	else if(at == 2 ){
-		/* facebook */
-		
+		if (response.status !== 'connected') {
+			facebookConnectPlugin.login(["public_profile"],
+				fbLoginSuccess,
+				function (error) { alert("" + error) }
+			);
+		}
+		FB.api('/me', {fields: 'last_name'}, function(response) {
+			alert(response);
+			localStorage.setItem('user-name', response);
+		});
 	}
 }
 
