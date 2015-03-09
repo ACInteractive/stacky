@@ -351,20 +351,18 @@ function saveOptions() {
 			if (response.status !== 'connected') {
 				facebookConnectPlugin.login(["public_profile"],
 					function (userData) {
-						alert(1);
 						facebookConnectPlugin.getLoginStatus(
 							function (status) {
-								userID = userData.userID;
 							}
 						);
 					},
 					function (error) { alert("" + error) }
 				);
 			}
-			alert("userId="+userID);
-			facebookConnectPlugin.api(userID + '/?fields=last_name', ["public_profile"],
+			
+			facebookConnectPlugin.api('/me', null,
 				function(response) {
-					alert(response.lastname);
+					alert(response.name);
 					localStorage.setItem('user-name', response.lastname);
 				}
 			);
