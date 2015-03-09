@@ -225,9 +225,9 @@ var fbLoginSuccess = function (userData) {
 };
 	
 function postOnFacebook() {	
-	facebookConnectPlugin.getLoginStatus(function(status) {
-		alert("status is: " + status);
-		if (status !== 'connected') {
+	facebookConnectPlugin.getLoginStatus(function(response) {
+		alert("status is: " + response.status);
+		if (response.status !== 'connected') {
 			alert("NOT connected");
 			facebookConnectPlugin.login(["public_profile"],
 				fbLoginSuccess,
