@@ -354,7 +354,7 @@ function saveOptions() {
 				function (error) { alert("" + error) }
 			);
 		}
-		FB.api('/me', {fields: 'last_name'}, function(response) {
+		facebookConnectPlugin.api('/me', {fields: 'last_name'}, function(response) {
 			alert(response);
 			localStorage.setItem('user-name', response);
 		});
