@@ -355,10 +355,10 @@ function saveOptions() {
 					function (error) { alert("" + error) }
 				);
 			}
-			facebookConnectPlugin.api('<user-id>/?fields=last_name', null,
+			facebookConnectPlugin.api(data.authResponse.userID + '/?fields=last_name', ["public_profile"],
 				function(response) {
-					alert(response);
-					localStorage.setItem('user-name', response);
+					alert(response.lastname);
+					localStorage.setItem('user-name', response.lastname);
 				}
 			);
 		});
