@@ -14,6 +14,7 @@ var moves;
 var theme;
 var secondaryGameOverText;
 var userID;
+var fbLoginSuccess;
 
 function resetVariables() {
 	gen_initial_max_size = 5;
@@ -217,7 +218,7 @@ function persistHighScores(u_temp, s_temp) {
 	$("#highscores-container").html(highscoreshtml);
 }
 
-var fbLoginSuccess = function (userData) {
+fbLoginSuccess = function (userData) {
 	alert(1);
 	facebookConnectPlugin.getLoginStatus(
 		function (status) {
