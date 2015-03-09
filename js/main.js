@@ -13,6 +13,7 @@ var val;
 var moves;
 var theme;
 var secondaryGameOverText;
+var userID;
 
 function resetVariables() {
 	gen_initial_max_size = 5;
@@ -219,6 +220,7 @@ function persistHighScores(u_temp, s_temp) {
 var fbLoginSuccess = function (userData) {
 	facebookConnectPlugin.getLoginStatus(
 		function (status) {
+			userID = userData.userID;
 		}
 	);
 };
@@ -355,7 +357,8 @@ function saveOptions() {
 					function (error) { alert("" + error) }
 				);
 			}
-			facebookConnectPlugin.api(data.authResponse.userID + '/?fields=last_name', ["public_profile"],
+			alert("userId="+userID);
+			facebookConnectPlugin.api(userID + '/?fields=last_name', ["public_profile"],
 				function(response) {
 					alert(response.lastname);
 					localStorage.setItem('user-name', response.lastname);
