@@ -176,12 +176,12 @@
                 <input type="hidden" name="userscore" id="userscore" value="" />
             </p>
             <hr />
-            <p>Want to play again?</p>
+            <p>Want to post your score on Facebook?</p>
             <p>
-            	<button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); reloadGame(); $('#game-over-back-screen').hide(); $('#game-over').hide(); postOnFacebook();" class="btn btn-lg btn-default">
+            	<button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over').hide(); postOnFacebook();" class="btn btn-lg btn-default">
                     Yes
                 </button>
-                <button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over').hide(); postOnFacebook();" class="btn btn-lg btn-default">
+                <button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over').hide();" class="btn btn-lg btn-default">
                     No
                 </button>
             </p>
