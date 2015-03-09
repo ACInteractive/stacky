@@ -113,7 +113,7 @@ strong {
 	margin-bottom: 20px;
 }
 
-#options-text select {
+#options-text .form-control {
 	float: right;
 	width: 150px;
 }

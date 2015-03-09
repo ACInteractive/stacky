@@ -322,6 +322,30 @@ function setTheme() {
 	$("#content").addClass("theme-"+theme);
 }
 
+function onChangeAuthOption() {
+    var x = $("#auth-select").val();
+	if(x == 1) {
+		localStorage.setItem('auth-type', '1');
+		$("#auth-user-input-section").show();
+		$("#auth-user-input-section").html("<input id='auth-user-input' class='form-control' type='text' name='insert your name'></input>");
+	}
+	else if(x == 2) {
+		localStorage.setItem('auth-type', '2');
+		$("#auth-user-input-section").hide();
+	}
+}
+
+function saveOptions() {
+	var at = localStorage.getItem('auth-type');
+	if(at == 1) {
+		localStorage.setItem('user-name', $("#auth-user-input").val());
+	}
+	else if(at == 2 ){
+		/* facebook */
+		
+	}
+}
+
 $(function() {		
 	setTimeout(function() {
 		setGameSizes();
@@ -352,6 +376,16 @@ $(function() {
 	});
 	
 	$(".back-to-main-menu-button").click( function() {
+		$("#first-page").show();
+		$("#menu").show();
+		$("#tutorial-page").hide();
+		$("#highscores-page").hide();
+		$("#options-page").hide();
+		$("#play-menu").hide();
+	});
+	
+	$("#back-button-options").click( function() {
+		saveOptions();
 		$("#first-page").show();
 		$("#menu").show();
 		$("#tutorial-page").hide();
@@ -419,4 +453,12 @@ $(function() {
 		localStorage.removeItem("hs");
 		location.reload();
 	});
+	
+	/* 1 - local user , 2 - facebook */
+	if(localStorage.getItem('auth-type') == null) {
+		localStorage.setItem('auth-type', '1');
+	}
+	if(localStorage.getItem('user-name') == null) {
+		localStorage.setItem('user-name', 'Default');
+	}
 });

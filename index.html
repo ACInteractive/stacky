@@ -257,19 +257,28 @@
     <div id="options-page">
 		<div id="options-description">
         	<div id="options-text">
-                <p>
-                    <h2>Game options</h2>
+				<h2>Game options</h2>
+                <p>                    
                     <strong>Theme</strong> 
                     <select id="theme-select" class="form-control">
-                    	<option value="1">Simple</option>
-                        <option value="2">Color Rage</option>
-                        <option value="3">Industrial</option>
-                        <option value="4">Nature</option>
+                    	<option value="Simple">Simple</option>
+                        <option value="Color Rage">Color Rage</option>
+                        <option value="Industrial">Industrial</option>
+                        <option value="Nature">Nature</option>
                     </select>
                 </p>
+				<p>
+					<strong>Authentication</strong> 
+                    <select id="auth-select" class="form-control" onchange="onChangeAuthOption()">
+                    	<option value="1">Local User</option>
+                        <option value="2">Facebook</option>
+                    </select>
+				</p>
+				<p id="auth-user-input-section">
+				</p>
             </div>
             <div id="options-description-button">
-                <button class="btn btn-lg btn-info back-to-main-menu-button">
+                <button id="back-button-options" class="btn btn-lg btn-info back-to-main-menu-button">
                     Back
                 </button>
 			</div>
