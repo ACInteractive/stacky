@@ -362,8 +362,8 @@ function saveOptions() {
 			
 			facebookConnectPlugin.api('/me', null,
 				function(response) {
-					alert(response.name);
-					localStorage.setItem('user-name', response.lastname);
+					alert(response.last_name);
+					localStorage.setItem('user-name', response.last_name);
 				}
 			);
 		});
