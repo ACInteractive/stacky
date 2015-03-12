@@ -382,6 +382,13 @@ function changeAuthenticationOption() {
 					}
 				);
 			}
+			else {
+				facebookConnectPlugin.api('/me', null,
+					function(response) {
+						$("#auth-user-input").val(response.last_name);
+					}
+				);
+			}
 		});
 		
 	}
