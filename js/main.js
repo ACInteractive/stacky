@@ -235,7 +235,7 @@ function postOnFacebook() {
 			);
 		}
 		var options = { method:"feed",
-						picture:'img/highscore.jpg',
+						picture:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmiVpPt8eDpoytmqaT1D10VlW4j1ydCWO-anBYHutU6E7bCRJw',
 						name:'New Highscore',
 						description: 'I just scored ' + score + ' points on Stacky!',
 						caption: 'Do you think you can do better?'
