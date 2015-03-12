@@ -14,6 +14,8 @@ var moves;
 var theme;
 var secondaryGameOverText;
 var userID;
+var authType;
+var playerName;
 
 function resetVariables() {
 	gen_initial_max_size = 5;
@@ -331,10 +333,8 @@ function setTheme() {
 	/* 1 - Simple, 2 - Color Rage, 3 - Industrial */
 	theme = localStorage.getItem("theme");
 	
-	if(theme == null) {
-		localStorage.setItem("theme", "1");
+	if(theme == null)
 		theme = "1";
-	}
 	
 	$("#theme-select").val(theme);
 	
@@ -351,9 +351,6 @@ function setAuthenticationMethod() {
 		localStorage.setItem("auth-type", "1");
 		authType = "1";
 	}
-		
-	if(authType == "1")
-		$("#auth-user-input-section").show();
 	
 	$("#auth-select").val(authType);
 		
@@ -367,42 +364,33 @@ function setAuthenticationMethod() {
 
 function changeAuthenticationOption() {
     var selectedAuthentication = $("#auth-select").val();
-	if(selectedAuthentication == "1") {
-		localStorage.setItem("auth-type", "1");
-		$("#auth-user-input-section").show();
-	}
-	else if(selectedAuthentication == "2") {
-		localStorage.setItem("auth-type", "2");
-		$("#auth-user-input-section").hide();
-	}
-}
-
-function saveOptions() {
-	var at = localStorage.getItem('auth-type');
-	if(at == 1) {
-		localStorage.setItem('player-name', $("#auth-user-input").val());
-	}
-	else if(at == 2 ){
+		
+	if(selectedAuthentication == "2") {
 		facebookConnectPlugin.getLoginStatus(function(response) {
 			if (response.status !== 'connected') {
 				facebookConnectPlugin.login(["public_profile"],
 					function (userData) {
-						facebookConnectPlugin.getLoginStatus(
-							function (status) {
+						facebookConnectPlugin.api('/me', null,
+							function(response) {
+								$("#auth-user-input").val(response.last_name);
 							}
 						);
 					},
-					function (error) { alert("" + error) }
+					function (error) { 
+						$("#auth-select").val("1");
+						alert("" + error);
+					}
 				);
 			}
-			
-			facebookConnectPlugin.api('/me', null,
-				function(response) {
-					localStorage.setItem('player-name', response.last_name);
-				}
-			);
 		});
+		
 	}
+}
+
+function saveOptions() {
+	localStorage.setItem('theme', $("#theme-select").val());
+	localStorage.setItem('auth-type', $("#auth-select").val());
+	localStorage.setItem('player-name', $("#auth-user-input").val());
 }
 
 $(function() {		
