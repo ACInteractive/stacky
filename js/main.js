@@ -287,9 +287,9 @@ function play(gameMode) {
 				
 				authType = localStorage.getItem("auth-type");
 				if(authType == "1")
-					$("#username").val(localStorage.getItem('user-name'));
+					$("#username").val(localStorage.getItem('player-name'));
 				else
-					$("#username").val(localStorage.getItem('user-name'));
+					$("#username").val(localStorage.getItem('player-name'));
 				
 			}
 			if(time < 0) {
@@ -345,7 +345,7 @@ function setTheme() {
 function setAuthenticationMethod() {
 	/* 1 - Local Player, 2 - Facebook */
 	authType = localStorage.getItem("auth-type");
-	userName = localStorage.getItem("user-name");
+	playerName = localStorage.getItem("player-name");
 	
 	if(authType == null) {
 		localStorage.setItem("auth-type", "1");
@@ -357,8 +357,12 @@ function setAuthenticationMethod() {
 	
 	$("#auth-select").val(authType);
 		
-	if(userName == null)
-		localStorage.setItem("user-name", "Default");
+	if(playerName == null) {
+		localStorage.setItem("player-name", "Anonymous");
+		playerName = "Anonymous";
+	}
+		
+	$("#auth-user-input").val(playerName);
 }
 
 function changeAuthenticationOption() {
@@ -376,7 +380,7 @@ function changeAuthenticationOption() {
 function saveOptions() {
 	var at = localStorage.getItem('auth-type');
 	if(at == 1) {
-		localStorage.setItem('user-name', $("#auth-user-input").val());
+		localStorage.setItem('player-name', $("#auth-user-input").val());
 	}
 	else if(at == 2 ){
 		facebookConnectPlugin.getLoginStatus(function(response) {
@@ -394,7 +398,7 @@ function saveOptions() {
 			
 			facebookConnectPlugin.api('/me', null,
 				function(response) {
-					localStorage.setItem('user-name', response.last_name);
+					localStorage.setItem('player-name', response.last_name);
 				}
 			);
 		});
