@@ -257,25 +257,32 @@
     <div id="options-page">
 		<div id="options-description">
         	<div id="options-text">
-				<h2>Game options</h2>
-                <p>                    
-                    <strong>Theme</strong> 
-                    <select id="theme-select" class="form-control">
-                    	<option value="1">Simple</option>
-                        <option value="2">Color Rage</option>
-                        <option value="3">Industrial</option>
-                    </select>
+            	<p>
+                    <h2>
+                        Game Options
+                        <button class="btn btn-warning" id="reset-options">
+                            Reset
+                        </button>
+                    </h2>
+                    <p>                    
+                        <strong>Theme</strong> 
+                        <select id="theme-select" class="form-control">
+                            <option value="1">Simple</option>
+                            <option value="2">Color Rage</option>
+                            <option value="3">Industrial</option>
+                        </select>
+                    </p>
+                    <p>
+                        <strong>Authentication</strong> 
+                        <select id="auth-select" class="form-control" onchange="changeAuthenticationOption()">
+                            <option value="1">Local Player</option>
+                            <option value="2">Facebook</option>
+                        </select>
+                    </p>
+                    <p id="auth-user-input-section">
+                        <input id="auth-user-input" class="form-control" type="text" name="auth-user-input" placeholder="Player Name"></input>
+                    </p>
                 </p>
-				<p>
-					<strong>Authentication</strong> 
-                    <select id="auth-select" class="form-control" onchange="onChangeAuthOption()">
-                    	<option value="1">Local User</option>
-                        <option value="2">Facebook</option>
-                    </select>
-				</p>
-				<p id="auth-user-input-section">
-                	<input id="auth-user-input" class="form-control" type="text" name="auth-user-input" placeholder="Player Name"></input>
-				</p>
             </div>
             <div id="options-description-button">
                 <button id="back-button-options" class="btn btn-lg btn-info back-to-main-menu-button">

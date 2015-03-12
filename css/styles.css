@@ -360,7 +360,7 @@ strong {
 	width: 40%;
 }
 
-#highscores-text #reset-highcores {
+#highscores-text #reset-highcores, #options-text #reset-options {
 	float: right;
 }
 
@@ -577,4 +577,8 @@ strong {
 .theme-3  #current-stack .list-group a span, #final-stack .list-group a span {
 	background-color: #fff;
 	opacity: 0.7;
+}
+
+#auth-user-input-section {
+	display: none;
 }
