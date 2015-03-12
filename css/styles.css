@@ -343,6 +343,15 @@ strong {
 	opacity: 0.5;
 }
 
+#game-over-back-screen-play-again {
+	width: 100%;
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+}
+
 #game-over {
 	width: 70%;
 	display: none;

@@ -149,6 +149,7 @@ function setGameSizes() {
 	$("#options-page").height(contentHeight);
 	$("#highscores-page").height(contentHeight);
 	$("#game-over-back-screen").height(contentHeight);
+	$("#game-over-back-screen-play-again").height(gameContainerHeight + 10);
 	$("#tutorial-description").height(descriptionHeight);
 	$("#options-description").height(descriptionHeight);
 	$("#highscores-description").height(descriptionHeight);
@@ -229,7 +230,7 @@ function postOnFacebook() {
 						}
 					);
 				},
-				function (error) { alert("" + error) }
+				function (error) { alert("Couldn't connect to Facebook!"); }
 			);
 		}
 		var options = { method:"feed",
@@ -244,7 +245,7 @@ function postOnFacebook() {
 				alert("Your score has been posted on your Facebook account.");
 			},
 			function (e) {
-				alert("Failed: " + e);
+				
 			}
 		);
 	});
@@ -378,7 +379,7 @@ function changeAuthenticationOption() {
 					},
 					function (error) { 
 						$("#auth-select").val("1");
-						alert("" + error);
+						alert("Couldn't connect to Facebook!");
 					}
 				);
 			}

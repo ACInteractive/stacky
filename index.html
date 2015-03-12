@@ -178,14 +178,15 @@
             <hr />
             <p>Want to post your score on Facebook?</p>
             <p>
-            	<button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over').hide(); postOnFacebook();" class="btn btn-lg btn-default">
+            	<button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over-back-screen-play-again').show(); $('#game-over').hide(); postOnFacebook();" class="btn btn-lg btn-default">
                     Yes
                 </button>
-                <button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over').hide();" class="btn btn-lg btn-default">
+                <button onClick="javascript:persistHighScores($('#username').val(), $('#userscore').val()); $('#game-over-back-screen').hide(); $('#game-over-back-screen-play-again').show(); $('#game-over').hide();" class="btn btn-lg btn-default">
                     No
                 </button>
             </p>
         </div>
+        <div id="game-over-back-screen-play-again"></div>
     </div>
     <div id="tutorial-page">
     	<div id="tutorial-description">
