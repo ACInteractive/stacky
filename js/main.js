@@ -284,7 +284,13 @@ function play(gameMode) {
 			
 				$("#userscore").val(score);
 				$("#game-over-text").html("<p>You have earned " + score + " points.</p><p>" + secondaryGameOverText + "</p>" );
-				$("#username").val(localStorage.getItem('user-name'));
+				
+				authType = localStorage.getItem("auth-type");
+				if(authType == "1")
+					$("#username").val(localStorage.getItem('user-name'));
+				else
+					$("#username").val(localStorage.getItem('user-name'));
+				
 			}
 			if(time < 0) {
 				$("#new-game").hide();
@@ -388,7 +394,6 @@ function saveOptions() {
 			
 			facebookConnectPlugin.api('/me', null,
 				function(response) {
-					alert(response.last_name);
 					localStorage.setItem('user-name', response.last_name);
 				}
 			);
