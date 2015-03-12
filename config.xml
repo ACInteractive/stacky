@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns   = "http://www.w3.org/ns/widgets"
+<widget xmlns   = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.working.stacky"
         versionCode = "1" 
@@ -21,9 +21,17 @@
 	
 	<preference name="fullscreen" value="true" />
 	
-	<preference name="phonegap-version" value="3.6.3" />
+	<preference name="phonegap-version" value="3.7.0" />
 	
 	<preference name="permissions" value="none" />
+	
+	<preference name="SplashScreen" value="StackySplashScreen"/>
+	
+	<preference name="SplashScreenDelay" value="2000"/>
+	
+	<preference name="InAppBrowserStorageEnabled" value="true"/>
+	
+	<preference name="LoadingDialog" value="Stacky,Is loading ..."/>
 	
 	<gap:plugin name="com.google.cordova.admob" source="plugins.cordova.io" />
 	
