@@ -171,6 +171,7 @@ function setGameSizes() {
 	
 	$("#points").css("top",3);
 	$("#points").css("left",118);
+	$("#game-over").css("top",(contentHeight - 356)/2);
 }
 
 function sortHighScores(scoreArray, userArray, currentScore, currentUser) {
@@ -234,7 +235,7 @@ function postOnFacebook() {
 			);
 		}
 		var options = { method:"feed",
-						picture:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmiVpPt8eDpoytmqaT1D10VlW4j1ydCWO-anBYHutU6E7bCRJw',
+						picture:'img/highscore.jpg',
 						name:'New Highscore',
 						description: 'I just scored ' + score + ' points on Stacky!',
 						caption: 'Do you think you can do better?'
