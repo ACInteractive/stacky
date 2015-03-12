@@ -522,6 +522,17 @@ strong {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6f0a3', endColorstr='#dbf043',GradientType=0 );
 }
 
+.theme-2 #moves .list-group-item {
+	background: rgb(247,247,247);
+	background: -moz-linear-gradient(top,  rgba(247,247,247,1) 0%, rgba(255,255,255,1) 57%, rgba(239,239,239,1) 57%, rgba(252,252,252,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,1)), color-stop(57%,rgba(255,255,255,1)), color-stop(57%,rgba(239,239,239,1)), color-stop(100%,rgba(252,252,252,1)));
+	background: -webkit-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 57%,rgba(239,239,239,1) 57%,rgba(252,252,252,1) 100%);
+	background: -o-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 57%,rgba(239,239,239,1) 57%,rgba(252,252,252,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 57%,rgba(239,239,239,1) 57%,rgba(252,252,252,1) 100%);
+	background: linear-gradient(to bottom,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 57%,rgba(239,239,239,1) 57%,rgba(252,252,252,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#fcfcfc',GradientType=0 );
+}
+
 .theme-3 .color1 {
 	background-image: url(../img/ind-col-1.png);
 	background-repeat: repeat-x;

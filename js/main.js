@@ -315,6 +315,7 @@ function play(gameMode) {
 
 function reloadGame() {
 	resetVariables();
+	$('#game-over-back-screen-play-again').hide();
 	$("#new-game").show();
 	$("#player-score").show();
 	updateScore(val);
