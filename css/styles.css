@@ -321,12 +321,12 @@ strong {
 }
 
 #points {
-	width: 70px;
-	height: 70px;
+	width: 50px;
+	height: 50px;
 	background: #FFBF51;
-	border-radius: 35px;
+	border-radius: 25px;
 	text-align: center;
-	line-height: 70px;
+	line-height: 50px;
 	font-size: 25px;
 	display: none;
 	color: #fff;
@@ -593,7 +593,56 @@ strong {
 	background-position: center;
 }
 
-.theme-3  #current-stack .list-group a span, #final-stack .list-group a span {
+.theme-3 #current-stack .list-group a span, #final-stack .list-group a span {
 	background-color: #fff;
 	opacity: 0.7;
+}
+
+.theme-3 #current-stack .list-group a, #final-stack .list-group a {
+	border-color: #000;
+}
+
+.theme-3 .panel {
+	background: none;
+	border-color: #000;
+	box-shadow: 10px 10px 5px #000;
+}
+
+.theme-3 #game-container {
+	background-image: url(../img/theme-3-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	background-size: cover;
+	color: #f5b044;
+}
+
+.theme-3 #moves .list-group-item {
+	background: none;
+	border-color: #000;
+	color: #fff;
+	box-shadow: 2px 2px 5px #000;
+}
+
+.theme-3 .panel-heading {
+	background-image: url(../img/theme-3-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	background-size: cover;
+	color: #fff;
+	border-color: #000;
+}
+
+.theme-3 #game-header {
+	background-image: url(../img/theme-3-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	background-size: contain;
+	color: #fff;
+	border-bottom: 5px solid #000;
+}
+
+.theme-3 #game-header .btn {
+	background: none;
+	border: 0;
+	color: #fff;
 }
