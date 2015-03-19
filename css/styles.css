@@ -364,8 +364,13 @@ strong {
 	overflow: auto;
 	opacity: 1;
 }
+
 #game-over button {
 	width: 40%;
+}
+
+.user-score {
+	float: right;
 }
 
 #highscores-text #reset-highcores, #options-text #reset-options {
@@ -411,6 +416,12 @@ strong {
 .theme-1 .color10 {
 	background: #e6f0a3;
 }
+
+.theme-1 #game-header {
+	border-bottom: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+
 
 .theme-2 .color1 {
 	background: #e0f3fa;
@@ -582,6 +593,9 @@ strong {
 	color: #fff;
 }
 
+.theme-2 #game-header .btn-danger {
+	color: #AA0648;
+}
 
 
 
@@ -696,4 +710,8 @@ strong {
 	background: none;
 	border: 0;
 	color: #fff;
+}
+
+.theme-3 #game-header .btn-danger {
+	color: #F28100;
 }

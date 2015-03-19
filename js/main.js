@@ -214,7 +214,7 @@ function persistHighScores(u_temp, s_temp) {
 			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + " </h4>";
 		}
 		else {
-			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + ". " + hs_user[i] + " " + hs_score[i] + " </h4>";
+			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + ". " + hs_user[i] + " <span class='user-score'>" + hs_score[i] + "</span></h4>";
 		}
 	}
 	
@@ -499,7 +499,7 @@ $(function() {
 			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + "." + " </h4>";
 		}
 		else {
-			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + ". " + hs_user[i] + " " + hs_score[i] + " </h4>";
+			highscoreshtml = highscoreshtml + "<h4> " + (i+1) + ". " + hs_user[i] + " <span class='user-score'>" + hs_score[i] + "</span></h4>";
 		}
 	}
 	

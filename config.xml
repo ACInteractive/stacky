@@ -17,6 +17,10 @@
         Adrian Ciulea and Alexandru Afrasinei
     </author>
 	
+	<icon src="icon.png" />
+	
+	<gap:splash src="splash.png" />
+	
 	<preference name="orientation" value="portrait" />
 	
 	<preference name="fullscreen" value="true" />
@@ -25,7 +29,7 @@
 	
 	<preference name="permissions" value="none" />
 	
-	<preference name="SplashScreen" value="StackySplashScreen"/>
+	<preference name="SplashScreen" value="splash"/>
 	
 	<preference name="SplashScreenDelay" value="2000"/>
 	
