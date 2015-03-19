@@ -20,7 +20,7 @@ var playerName;
 function resetVariables() {
 	gen_initial_max_size = 5;
 	gen_nr_ops = 5;
-	time = 30;
+	time = 300;
 	currentStack = new StackOps();
 	is_same = false;
 	currentGameStack = [];
@@ -234,8 +234,17 @@ function postOnFacebook() {
 				function (error) { alert("Couldn't connect to Facebook!"); }
 			);
 		}
+		
+		if(score < 100) {
+			hspicture = 'http://angelicdesign.ro/Stacky/bronze-score.png';
+		} else if (score >= 100 && score < 150) {
+			hspicture = 'http://angelicdesign.ro/Stacky/silver-score.png';
+		} else {
+			hspicture = 'http://angelicdesign.ro/Stacky/gold-score.png';
+		}
+		
 		var options = { method:"feed",
-						picture:'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQmiVpPt8eDpoytmqaT1D10VlW4j1ydCWO-anBYHutU6E7bCRJw',
+						picture:hspicture,
 						name:'New Highscore',
 						description: 'I just scored ' + score + ' points on Stacky!',
 						caption: 'Do you think you can do better?'
