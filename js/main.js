@@ -136,7 +136,7 @@ function setGameSizes() {
 	var contentHeight = $( window ).height();
 	var descriptionHeight = contentHeight - 40;
 	var textHeight = contentHeight - 110;
-	var gameContainerHeight = contentHeight - 67;
+	var gameContainerHeight = contentHeight - 72;
 	var gameWindowHeight = gameContainerHeight - 20;
 	var gameWindowPanelHeight = gameWindowHeight;
 	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
@@ -333,7 +333,7 @@ function backToFirstPage() {
 }
 
 function setTheme() {
-	/* 1 - Simple, 2 - Color Rage, 3 - Industrial */
+	/* 1 - Simple, 2 - Rainbow, 3 - Industrial */
 	theme = localStorage.getItem("theme");
 	
 	if(theme == null)

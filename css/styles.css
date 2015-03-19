@@ -524,14 +524,66 @@ strong {
 
 .theme-2 #moves .list-group-item {
 	background: rgb(247,247,247);
-	background: -moz-linear-gradient(top,  rgba(247,247,247,1) 0%, rgba(255,255,255,1) 57%, rgba(239,239,239,1) 57%, rgba(252,252,252,1) 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,1)), color-stop(57%,rgba(255,255,255,1)), color-stop(57%,rgba(239,239,239,1)), color-stop(100%,rgba(252,252,252,1)));
-	background: -webkit-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 57%,rgba(239,239,239,1) 57%,rgba(252,252,252,1) 100%);
-	background: -o-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 57%,rgba(239,239,239,1) 57%,rgba(252,252,252,1) 100%);
-	background: -ms-linear-gradient(top,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 57%,rgba(239,239,239,1) 57%,rgba(252,252,252,1) 100%);
-	background: linear-gradient(to bottom,  rgba(247,247,247,1) 0%,rgba(255,255,255,1) 57%,rgba(239,239,239,1) 57%,rgba(252,252,252,1) 100%);
+	background: -moz-linear-gradient(top,  rgba(247,247,247,0.5) 0%, rgba(255,255,255,0.5) 57%, rgba(239,239,239,0.5) 57%, rgba(252,252,252,0.5) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,0.5)), color-stop(57%,rgba(255,255,255,0.5)), color-stop(57%,rgba(239,239,239,0.5)), color-stop(100%,rgba(252,252,252,0.5)));
+	background: -webkit-linear-gradient(top,  rgba(247,247,247,0.5) 0%,rgba(255,255,255,0.5) 57%,rgba(239,239,239,0.5) 57%,rgba(252,252,252,0.5) 100%);
+	background: -o-linear-gradient(top,  rgba(247,247,247,0.5) 0%,rgba(255,255,255,0.5) 57%,rgba(239,239,239,0.5) 57%,rgba(252,252,252,0.5) 100%);
+	background: -ms-linear-gradient(top,  rgba(247,247,247,0.5) 0%,rgba(255,255,255,0.5) 57%,rgba(239,239,239,0.5) 57%,rgba(252,252,252,0.5) 100%);
+	background: linear-gradient(to bottom,  rgba(247,247,247,0.5) 0%,rgba(255,255,255,0.5) 57%,rgba(239,239,239,0.5) 57%,rgba(252,252,252,0.5) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#fcfcfc',GradientType=0 );
+	border: 0;
+	color: #006C93;
+	text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);;
 }
+
+.theme-2 #current-stack .list-group a span, .theme-2 #final-stack .list-group a span {
+	background-color: #fff;
+	opacity: 0.7;
+}
+
+.theme-2 #current-stack .list-group a, .theme-2 #final-stack .list-group a {
+	border: 0;
+}
+
+.theme-2 .panel {
+	background: none;
+	border-color: #fff;
+	box-shadow: 2px 2px 5px #fff;
+}
+
+.theme-2 #game-container {
+	background-image: url(../img/theme-2-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	background-size: cover;
+	color: #f5b044;
+}
+
+.theme-2 .panel-heading {
+	background-image: url(../img/theme-2-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	color: #D15000;
+	text-shadow: 0 0 2px rgba(255, 255, 255, 0.5);
+	border-color: #fff;
+}
+
+.theme-2 #game-header {
+	background-image: url(../img/theme-2-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: center;
+	color: #fff;
+	border-bottom: 5px solid rgba(255, 255, 255, 0.5);
+}
+
+.theme-2 #game-header .btn {
+	background: none;
+	border: 0;
+	color: #fff;
+}
+
+
+
 
 .theme-3 .color1 {
 	background-image: url(../img/ind-col-1.png);
@@ -593,12 +645,12 @@ strong {
 	background-position: center;
 }
 
-.theme-3 #current-stack .list-group a span, #final-stack .list-group a span {
+.theme-3 #current-stack .list-group a span, .theme-3 #final-stack .list-group a span {
 	background-color: #fff;
 	opacity: 0.7;
 }
 
-.theme-3 #current-stack .list-group a, #final-stack .list-group a {
+.theme-3 #current-stack .list-group a, .theme-3 #final-stack .list-group a {
 	border-color: #000;
 }
 
@@ -635,8 +687,7 @@ strong {
 .theme-3 #game-header {
 	background-image: url(../img/theme-3-bg.jpg);
 	background-repeat: repeat-x;
-	background-position: center;
-	background-size: contain;
+	background-position: top left;
 	color: #fff;
 	border-bottom: 5px solid #000;
 }

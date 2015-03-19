@@ -10,7 +10,7 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="application/javascript" src="js/fastclick.js"></script> 
 <script type="application/javascript">
-	window.addEventListener('load', function () {
+	window.addEventListener('load', function () { 
 		FastClick.attach(document.body);
 	}, false);
 	
@@ -172,7 +172,7 @@
             <hr />
             <p>
             	Please enter your name<br />
-                <input type="text" name="username" id="username" class="form-control" maxlength="10" value="" />
+                <input type="text" name="username" id="username" class="form-control" maxlength="20" value="" />
                 <input type="hidden" name="userscore" id="userscore" value="" />
             </p>
             <hr />
@@ -269,7 +269,7 @@
                         <strong>Theme</strong> 
                         <select id="theme-select" class="form-control">
                             <option value="1">Simple</option>
-                            <option value="2">Color Rage</option>
+                            <option value="2">Rainbow</option>
                             <option value="3">Industrial</option>
                         </select>
                     </p>
@@ -281,7 +281,7 @@
                         </select>
                     </p>
                     <p id="auth-user-input-section">
-                        <input id="auth-user-input" class="form-control" type="text" name="auth-user-input" placeholder="Player Name" value=""/>
+                        <input id="auth-user-input" class="form-control" type="text" name="auth-user-input" maxlength="20" placeholder="Player Name" value=""/>
                     </p>
                 </p>
             </div>
