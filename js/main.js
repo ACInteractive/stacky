@@ -247,12 +247,12 @@ function postOnFacebook() {
 						picture:hspicture,
 						name:'New Highscore',
 						description: 'I just scored ' + score + ' points on Stacky!',
-						caption: 'Do you think you can do better?'
+						caption: 'Do you think you can do better? Download Stacky now from Google Play.'
 					  };
 					  
 		facebookConnectPlugin.showDialog(options,
 			function (result) {
-				alert("Your score has been posted on your Facebook account.");
+				
 			},
 			function (e) {
 				
