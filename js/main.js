@@ -16,6 +16,7 @@ var secondaryGameOverText;
 var userID;
 var authType;
 var playerName;
+var defaultBarHeight = 29;
 
 function resetVariables() {
 	gen_initial_max_size = 5;
@@ -58,41 +59,56 @@ function updateScore(val) {
 }
 
 function runOp(op) {
+        var op_bar_height = 0;
 	var currentList = "";
 	currentGameStack.length = 0;
 	opname = currentStack.ops[op];
 	
-	currentStack[opname]();
+        if (op <= 5) {
+                op_bar_height = defaultBarHeight;
+        }
+        else if(op > 5) {
+                op_bar_height = defaultBarHeight * 2;
+        }
+        
+        //dup over 2dup 2 over
+        if (op == 1 || op == 4 || op == 7 || op == 10) {
+                if(((currentStack.length() * defaultBarHeight) + op_bar_height)  > $("#current-stack").height() - 41) {
+                        return;
+                }
+        }
+        
+        currentStack[opname]();
+
+        for(i=0; i<currentStack.length(); i++) {
+                currentList = currentList + "<a class='list-group-item color" + currentStack.get(i) + "'><span>" + currentStack.get(i) + "</span></a>";
+                currentGameStack.push(currentStack.get(i));
+        }
+        $("#current-stack-list").empty().html(currentList);
+        
+        is_same = (currentGameStack.length == finalGameStack.length) && currentGameStack.every(function(element, index) {
+                return element === finalGameStack[index]; 
+        });
 	
-	for(i=0; i<currentStack.length(); i++) {
-		currentList = currentList + "<a class='list-group-item color" + currentStack.get(i) + "'><span>" + currentStack.get(i) + "</span></a>";
-		currentGameStack.push(currentStack.get(i));
-	}
-	$("#current-stack-list").empty().html(currentList);
+        moves++;
 	
-	is_same = (currentGameStack.length == finalGameStack.length) && currentGameStack.every(function(element, index) {
-		return element === finalGameStack[index]; 
-	});
-	
-	moves++;
-	
-	if(is_same) {
-		win = 1;
-		val = 5;
-		if(moves > gen_nr_ops)
-			val = val - (moves - gen_nr_ops);
-		else if(moves < gen_nr_ops) {
-			val = val + (gen_nr_ops - moves);
-			if(gameMode == 3) {
-				time = time + (gen_nr_ops - moves);
-			}
-		}
-		if(val < 1)
-			val = 1;
-		$("#points").text(val).fadeToggle(1000).fadeToggle(3000);
-		updateScore(val);
-		newGame(1);
-	}
+        if(is_same) {
+                win = 1;
+                val = 5;
+                if(moves > gen_nr_ops)
+                        val = val - (moves - gen_nr_ops);
+                else if(moves < gen_nr_ops) {
+                        val = val + (gen_nr_ops - moves);
+                        if(gameMode == 3) {
+                                time = time + (gen_nr_ops - moves);
+                        }
+                }
+                if(val < 1)
+                        val = 1;
+                $("#points").text(val).fadeToggle(1000).fadeToggle(3000);
+                updateScore(val);
+                newGame(1);
+        }
 }
 
 function newGame(win) {
