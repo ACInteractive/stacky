@@ -293,6 +293,8 @@ function play(gameMode) {
 	if(gameMode == 1) {
 		$(".secondary-ops").hide();
 		gen_initial_max_rand = 6;
+		movesWidth = ($( window ).width() - 12 - 52) / 3;
+		$("#moves .list-group .list-group-item").width(movesWidth);
 	} else
 		gen_initial_max_rand = 10;
 		
