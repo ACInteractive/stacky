@@ -204,7 +204,7 @@ strong {
 }
 
 #moves .panel-body {
-	overflow: visible;
+	overflow: hidden;
 }
 
 #moves .list-group {
