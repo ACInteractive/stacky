@@ -37,6 +37,7 @@ resetVariables();
 function generateInitialStack(stack) {
 	$("#current-stack-list").empty();
 	var initialList = "";
+        
 	for(i=0; i<stack.initial.length; i++) {
 		initialList = initialList + "<a class='list-group-item color" + stack.initial[i] + "'><span>" + stack.initial[i] + "</span></a>";
 	}
@@ -46,6 +47,7 @@ function generateInitialStack(stack) {
 function generateFinalStack(stack) {
 	$("#final-stack-list").empty();
 	var finalList = "";
+        
 	for(i=0; i<stack.internal_stack.length(); i++) {
 		finalList = finalList + "<a class='list-group-item color" + stack.internal_stack.get(i) + "'><span>" + stack.internal_stack.get(i) + "</span></a>";
 		finalGameStack.push(stack.internal_stack.get(i));
@@ -125,10 +127,15 @@ function newGame(win) {
 		}
 	}
 	
+        
 	while(1) {
 		var genStack = new Generator();
 		genStack.GenerateRandom(gen_initial_max_size, gen_initial_max_rand, gen_nr_ops);
 	
+                if(((genStack.internal_stack.length() * defaultBarHeight) > $("#current-stack").height() - 41)) {
+                        continue;
+                }
+                
 		currentStack = new StackOps();
 		currentStack.Init(genStack.initial);
 	
