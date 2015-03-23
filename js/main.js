@@ -166,7 +166,7 @@ function setGameSizes() {
 	var stacksWidth = $( window ).width() - 12;
 	var stackWidth = (stacksWidth - 10) / 2;
 	var stackItemsWidth = stackWidth - 10;
-	var movesWidth = (stacksWidth - 70) / 5;
+	var movesWidth = (stacksWidth - 71) / 5;
 	
 	$("#first-page").height(contentHeight);
 	$("#tutorial-page").height(contentHeight);
