@@ -204,12 +204,18 @@ strong {
 }
 
 #moves .panel-body {
-	overflow: hidden;
+	overflow: visible;
+}
+
+#moves .list-group {
+	overflow: auto;
+	margin-bottom: 0;
 }
 
 #moves .panel-body .list-group-item {
 	text-align: center;
 	padding: 5px;
+	margin: 0 auto;
 }
 
 #moves .panel-body .list-group-item span {
