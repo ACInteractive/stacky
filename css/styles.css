@@ -21,31 +21,10 @@ body {
 	line-height: 1.42857;
 	color: #333333;
 	background: #000;
+	background-image: url(../splash.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: top center;
-}
-
-@media only screen 
-and (max-width : 480px) {
-	body {
-		background-image: url(../img/bgS.jpg);
-	}
-}
-
-@media only screen 
-and (min-width : 480px) 
-and (max-width : 768px) {
-	body {
-		background-image: url(../img/bgM.jpg);
-	}
-}
-
-@media only screen 
-and (min-width : 768px) {
-	body {
-		background-image: url(../img/bgL.jpg);
-	}
 }
 
 strong {
@@ -215,7 +194,8 @@ strong {
 }
 
 #moves {
-	width: 90px;
+	height: 120px;
+	margin-top: 5px;
 }
 
 #moves .panel-heading a {
@@ -224,8 +204,7 @@ strong {
 }
 
 #moves .panel-body {
-	overflow-x: hidden;
-	overflow-y: auto;
+	overflow: hidden;
 }
 
 #moves .panel-body .list-group-item {
@@ -235,7 +214,7 @@ strong {
 
 #moves .panel-body .list-group-item span {
 	font-size: 20px;
-	Width: 60px;
+	Width: 100%;
 }
 
 #stacks .list-group-item {
@@ -279,9 +258,8 @@ strong {
 
 #moves .list-group .list-group-item {
 	float: left;
-	width: 78px;
 	height: 55px;
-	margin: 2px 0;
+	margin: 0;
 	border-radius: 4px;
 }
 
@@ -677,7 +655,7 @@ strong {
 .theme-3 #game-container {
 	background-image: url(../img/theme-3-bg.jpg);
 	background-repeat: repeat-x;
-	background-position: center;
+	background-position: 38%;
 	background-size: cover;
 	color: #f5b044;
 }
@@ -687,6 +665,7 @@ strong {
 	border-color: #000;
 	color: #fff;
 	box-shadow: 2px 2px 5px #000;
+	font-size: 12px;
 }
 
 .theme-3 .panel-heading {
@@ -699,6 +678,14 @@ strong {
 }
 
 .theme-3 #game-header {
+	background-image: url(../img/theme-3-bg.jpg);
+	background-repeat: repeat-x;
+	background-position: top left;
+	color: #fff;
+	border-bottom: 5px solid #000;
+}
+
+.theme-3 #moves {
 	background-image: url(../img/theme-3-bg.jpg);
 	background-repeat: repeat-x;
 	background-position: top left;

@@ -126,7 +126,6 @@
                     </div>
                 </div>
                 <div id="moves" class="panel panel-primary">
-                    <div class="panel-heading">Moves</div>
                     <div class="panel-body">
                         <div class="list-group">
                             <button onClick="javascript:runOp(1);" class="list-group-item primary-ops">
@@ -144,9 +143,6 @@
                             <button onClick="javascript:runOp(5);" class="list-group-item primary-ops">
                                 <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Rot
                             </button>
-                            <button onClick="javascript:runOp(6);" class="list-group-item primary-ops">
-                                <span class="glyphicon glyphicon-refresh flipH" aria-hidden="true"></span> Min Rot
-                            </button>
                             <button onClick="javascript:runOp(7);" class="list-group-item secondary-ops">
                                 <span class="glyphicon glyphicon-plus" aria-hidden="true">2</span> Dup
                             </button>
@@ -158,6 +154,9 @@
                             </button>
                             <button onClick="javascript:runOp(10);" class="list-group-item secondary-ops">
                                 <span class="glyphicon glyphicon-repeat" aria-hidden="true">2</span> Over
+                            </button>
+                            <button onClick="javascript:runOp(6);" class="list-group-item primary-ops">
+                                <span class="glyphicon glyphicon-refresh flipH" aria-hidden="true"></span> Min Rot
                             </button>
                         </div>
                     </div>
@@ -200,7 +199,7 @@
                     <ul>
                         <li><strong>Learning game</strong> is the first game mode that you want to try in order to get to know the basic game functionality. Once you mastered it you can go check the other 2 game modes.</li>
                         <li><strong>Normal game</strong> is a game mode that allows you to play the full game and try all the available moves to get the stack in order.</li>
-                        <li><strong>Against the clock</strong> is a game mode that gives you a real challlange. You'll need to acquire as many points as possible in a limited time.</li>
+                        <li><strong>Against the clock</strong> is a game mode that gives you a real challenge. You'll need to acquire as many points as possible in a limited time.</li>
                     </ul>
                 </p>
                 <h3>Moves</h3>
@@ -208,7 +207,7 @@
                     The user can interact with the stack by using the given moves list.
                 </p>
                 <p>
-                    Each move modifies the Current Stack and, if done correctly, gets you closer to the solution (the Final Stack).
+                    Each move modifies the Current Stack and, if done correctly, gets you closer to the solution (the Target Stack).
                 </p>
                 <p>
                     <ul>

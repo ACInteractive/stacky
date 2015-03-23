@@ -155,10 +155,11 @@ function setGameSizes() {
 	var gameContainerHeight = contentHeight - 72;
 	var gameWindowHeight = gameContainerHeight - 20;
 	var gameWindowPanelHeight = gameWindowHeight;
-	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 32;
-	var stacksWidth = $( window ).width() - 107;
+	var gameWindowPanelBodyHeight = gameWindowPanelHeight - 157;
+	var stacksWidth = $( window ).width() - 12;
 	var stackWidth = (stacksWidth - 10) / 2;
 	var stackItemsWidth = stackWidth - 10;
+	var movesWidth = (stacksWidth - 70) / 5;
 	
 	$("#first-page").height(contentHeight);
 	$("#tutorial-page").height(contentHeight);
@@ -176,7 +177,6 @@ function setGameSizes() {
 	$("#game-container").height(gameContainerHeight);
 	$("#game-window").height(gameWindowHeight);
 	$("#game-window .panel").height(gameWindowPanelHeight);
-	$("#moves .panel-body").height(gameWindowPanelBodyHeight);
 	$("#current-stack .panel-body").height(gameWindowPanelBodyHeight);
 	$("#final-stack .panel-body").height(gameWindowPanelBodyHeight);
 	$("#stacks").width(stacksWidth);
@@ -184,6 +184,7 @@ function setGameSizes() {
 	$("#final-stack").width(stackWidth);
 	$("#current-stack-list").width(stackItemsWidth);
 	$("#final-stack-list").width(stackItemsWidth);
+	$("#moves .list-group .list-group-item").width(movesWidth);
 	
 	$("#points").css("top",3);
 	$("#points").css("left",118);
@@ -261,9 +262,9 @@ function postOnFacebook() {
 		
 		var options = { method:"feed",
 						picture:hspicture,
-						name:'New Highscore',
+						name:'New Highscore (' + score + ' points)',
 						description: 'I just scored ' + score + ' points on Stacky!',
-						caption: 'Do you think you can do better? Download Stacky now from Google Play.'
+						caption: 'Give it a try! Install Stacky now on your Android device!'
 					  };
 					  
 		facebookConnectPlugin.showDialog(options,
