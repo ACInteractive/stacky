@@ -20,11 +20,6 @@ body {
 	font-size: 14px;
 	line-height: 1.42857;
 	color: #333333;
-	background: #000;
-	background-image: url(../splash.png);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top center;
 }
 
 strong {
@@ -40,6 +35,13 @@ strong {
 
 #first-page, #tutorial-page, #options-page  {
 	text-align: center;
+}
+#first-page {
+	background: #000;
+	background-image: url(../splash.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
 }
 #first-page button {
 	width: 100%;
@@ -72,9 +74,9 @@ strong {
 
 #highscores-description, #tutorial-description, #options-description {
 	padding: 20px;
-	background: #2b0e03;
+	background: #c4c4c4;
 	opacity: 0.8;
-	color: #fff;
+	color: #000;
 	text-align: left;
 }
 
