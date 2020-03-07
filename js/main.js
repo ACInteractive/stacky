@@ -245,7 +245,7 @@ function persistHighScores(u_temp, s_temp) {
 	$("#highscores-container").html(highscoreshtml);
 }
 	
-function postOnFacebook() {	
+/* function postOnFacebook() {	
 	facebookConnectPlugin.getLoginStatus(function(response) {
 		if (response.status !== 'connected') {
 			facebookConnectPlugin.login(["public_profile"],
@@ -283,7 +283,7 @@ function postOnFacebook() {
 			}
 		);
 	});
-}
+} */
 
 function play(gameMode) {
 	gameMode = gameMode;
@@ -400,7 +400,7 @@ function setAuthenticationMethod() {
 	$("#auth-user-input").val(playerName);
 }
 
-function changeAuthenticationOption() {
+/* function changeAuthenticationOption() {
     var selectedAuthentication = $("#auth-select").val();
 		
 	if(selectedAuthentication == "2") {
@@ -430,7 +430,7 @@ function changeAuthenticationOption() {
 		});
 		
 	}
-}
+}*/
 
 function saveOptions() {
 	localStorage.setItem('theme', $("#theme-select").val());
